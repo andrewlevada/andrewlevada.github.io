@@ -1,10 +1,8 @@
-const paths = require('./webpack.paths');
 const common = require('./webpack.common');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { DuplicatesPlugin } = require("inspectpack/plugin");
 const { mergeWithRules } = require('webpack-merge')
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 const config = mergeWithRules({
 	module: {
@@ -43,16 +41,6 @@ const config = mergeWithRules({
 		// 	}
 		// }),
 		new DuplicatesPlugin(),
-		new FaviconsWebpackPlugin({
-			logo: `${paths.src}/assets/favicon.png`,
-			favicons: {
-				appName: "Andrew Levada",
-				appDescription: null,
-				lang: "ru",
-				theme_color: "#33AD6A",
-				background: "#FCF6F5"
-			}
-		})
 	],
 
 	optimization: {
