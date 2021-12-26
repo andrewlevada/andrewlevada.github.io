@@ -5,8 +5,8 @@ import { defineComponent } from "~utils/components";
 
 export default (): void => defineComponent("header-section", HelloText);
 export class HelloText extends LitElement {
-  render(): TemplateResult {
-    return html`
+    render(): TemplateResult {
+        return html`
       <div class="flex col full-width gap s-40">
           <div class="flex row justify-between full-width">
               <h1>Hello! I am Andrew. <br>Aspiring product creator with <br>management, coding and design skills.</h1>
@@ -16,9 +16,9 @@ export class HelloText extends LitElement {
           </div>
       </div>
     `;
-  }
+    }
 
-  static get styles(): CSSStyleSheet[] {
-    return [...componentStyles, scopedStyles as never];
-  }
+    static get styles(): CSSStyleSheet[] {
+        return [...componentStyles, scopedStyles as never];
+    }
 }
