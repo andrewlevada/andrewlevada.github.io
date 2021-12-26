@@ -1,4 +1,4 @@
-import PublicGoogleSheetsParser from "public-google-sheets-parser/dist";
+import PublicGoogleSheetsParser from "@andrewlevada/public-google-sheets-parser";
 
 const spreadsheetId = "1aj7yB3noTP8Y2pmHC4OuIj1Z-nY-0EoSAnNbMIF4kPo";
 const parser = new PublicGoogleSheetsParser();
