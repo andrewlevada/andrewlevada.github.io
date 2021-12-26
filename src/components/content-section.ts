@@ -11,7 +11,7 @@ export class ContentSection extends LitElement {
             <div class="flex col full-width border">
                 <div class="flex row full-width wrapper">
                     ${["Jobs", "Projects", "Education"].map((v, i) => html`
-                        <cards-column class=${`col-${i + 1}`} .title=${v}></cards-column>
+                        <cards-column class=${`col-${i + 1}`} header=${v}></cards-column>
                     `)}
                 </div>
 

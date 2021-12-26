@@ -23,7 +23,7 @@ export function getCardsFor(section: ContentSections): Promise<Card[]> {
         title: v.Title,
         text: v.Text,
         link: v.Link,
-        href: v.LinkURL,
+        href: v["Link URL"],
         tags: trimArray([v.Tag1, v.Tag2, v.Tag3]),
     }) as Card));
 }

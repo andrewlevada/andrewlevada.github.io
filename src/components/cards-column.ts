@@ -9,13 +9,13 @@ import("~components/general-card").then(f => f.default());
 
 export default (): void => defineComponent("cards-column", CardsColumn);
 export class CardsColumn extends LitElement {
-    @property() title!: string;
+    @property() header!: string;
     @state() cards: Card[] = [];
 
     render(): TemplateResult {
         return html`
-            <div class="flex col full-width wrapper-${this.title}">
-                <div class="header flex pad-24"><h2>${this.title}</h2></div>
+            <div class="flex col full-width wrapper-${this.header}">
+                <div class="header flex pad-24"><h2>${this.header}</h2></div>
                 <div class="flex col full-width cards">
                     ${this.cards.map(card => html`<general-card .content=${card}></general-card>`)}
                 </div>
@@ -25,7 +25,7 @@ export class CardsColumn extends LitElement {
 
     connectedCallback() {
         super.connectedCallback();
-        getCardsFor(this.title as ContentSections).then(v => {
+        getCardsFor(this.header as ContentSections).then(v => {
             this.cards = v;
         });
     }
