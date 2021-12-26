@@ -9,7 +9,7 @@ export class PrintButton extends LitElement {
         return html`
             <button class="flex row gap align-center">
                 <img src="${printIcon}" alt="null">
-                <h2>Print</h2>
+                <h2>Get PDF</h2>
             </button>
         `;
     }

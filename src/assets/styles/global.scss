@@ -1,9 +1,5 @@
 @import "./reset";
-@import url("https://fonts.googleapis.com/css2?family=Bitter");
-
-@function vw($px) {
-  @return ($px / 17px) * 1vw;
-}
+@import "./tools";
 
 $primary-color: #33AD6A;
 $dark-primary-color: #14904C;

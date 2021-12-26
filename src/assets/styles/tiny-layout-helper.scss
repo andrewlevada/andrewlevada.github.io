@@ -12,6 +12,10 @@
   &.s-40 > *:not(:last-child) {
     #{$margin}: vw(40px);
   }
+
+  &.s-24 > *:not(:last-child) {
+    #{$margin}: vw(24px);
+  }
 }
 
 .flex {
