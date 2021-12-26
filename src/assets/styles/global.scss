@@ -48,3 +48,16 @@ p {
   font-size: vw(16px);
   line-height: vw(24px);
 }
+
+a {
+  font-family: Bitter, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: vw(16px);
+  line-height: vw(24px);
+  text-decoration-line: underline;
+}
+
+.border {
+  border: solid 2px $primary-color;
+}
