@@ -12,11 +12,7 @@ const config = merge(common, {
 		port: 2797,
 		hot: true,
 		// Used for complex url routing (can be removed)
-		historyApiFallback: {
-			rewrites: [
-				{ from: /^\/test\/.*/, to: '/test/index.html' },
-			],
-		},
+		historyApiFallback: { rewrites: [] },
 	}
 });
 

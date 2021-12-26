@@ -1,9 +1,50 @@
 @import "./reset";
+@import url("https://fonts.googleapis.com/css2?family=Bitter");
 
-:host {
-  box-sizing: border-box;
+@function vw($px) {
+  @return ($px / 17px) * 1vw;
 }
 
 $primary-color: #33AD6A;
 $dark-primary-color: #14904C;
 $surface-color: #FCF6F5;
+
+:host {
+  box-sizing: border-box;
+}
+
+* {
+  color: $primary-color;
+}
+
+h1 {
+  font-family: Bitter, serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: vw(64px);
+  line-height: vw(87px);
+}
+
+h2 {
+  font-family: Ubuntu, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: vw(20px);
+  line-height: vw(24px);
+}
+
+h3 {
+  font-family: Bitter, serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: vw(20px);
+  line-height: vw(28px);
+}
+
+p {
+  font-family: Bitter, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: vw(16px);
+  line-height: vw(24px);
+}
