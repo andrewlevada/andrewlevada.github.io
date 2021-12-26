@@ -1,3 +1,8 @@
+import PublicGoogleSheetsParser from "public-google-sheets-parser/dist";
+
+const spreadsheetId = "1aj7yB3noTP8Y2pmHC4OuIj1Z-nY-0EoSAnNbMIF4kPo";
+const parser = new PublicGoogleSheetsParser();
+
 export interface Card {
     title: string;
     text: string;
@@ -13,12 +18,23 @@ export interface ProjectCard extends Card {
 export type ContentSections = "jobs" | "projects" | "education";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function getCardsFor(section: ContentSections): Card[] {
-    return [{
-        title: "Prepared and Taught a Course for Innopolis IT School",
-        text: "With a partner I have created and caried out offline master class on artaficial intelegence in Innopolis University as part of «Smart Weekend» course. We have prepared interactive materials for learning Python and developed game-like simulation for AI in Unity (I was responsible for this part). In total, we have taught this master class to 4 groups with roughtly 25 people in each group.",
-        link: "Materials attached",
-        href: "#",
-        tags: ["Innopolis", "Unity", "Python"],
-    }];
+export function getCardsFor(section: ContentSections): Promise<Card[]> {
+    return parser.parse(spreadsheetId, capitalize(section)).then(data => data.map(v => ({
+        title: v.Title,
+        text: v.Text,
+        link: v.Link,
+        href: v.LinkURL,
+        tags: trimArray([v.Tag1, v.Tag2, v.Tag3]),
+    }) as Card));
+}
+
+function capitalize(s: string): string {
+    return s.charAt(0).toUpperCase() + s.substring(1);
+}
+
+function trimArray<T>(a: T[]): T[] {
+    const n = [];
+    // eslint-disable-next-line no-restricted-syntax
+    for (const i of a) if (i !== undefined) n.push(i);
+    return n;
 }

@@ -1,7 +1,6 @@
 import { html, LitElement, TemplateResult, CSSResultGroup, css } from "lit";
 import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
-import { ContentSections, getCardsFor } from "~src/content-service";
 
 import("~components/cards-column").then(f => f.default());
 
@@ -12,7 +11,7 @@ export class ContentSection extends LitElement {
             <div class="flex col full-width border">
                 <div class="flex row full-width wrapper">
                     ${["Jobs", "Projects", "Education"].map((v, i) => html`
-                        <cards-column class=${`col-${i + 1}`} .title=${v} .cards=${getCardsFor(v.toLowerCase() as ContentSections)}></cards-column>
+                        <cards-column class=${`col-${i + 1}`} .title=${v}></cards-column>
                     `)}
                 </div>
 

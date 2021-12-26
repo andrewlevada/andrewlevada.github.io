@@ -1,16 +1,16 @@
 import { css, html, LitElement, TemplateResult } from "lit";
 import { CSSResultGroup } from "lit";
-import { property } from "lit/decorators.js";
+import { property, state } from "lit/decorators.js";
 import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
-import { Card } from "~src/content-service";
+import { Card, ContentSections, getCardsFor } from "~src/content-service";
 
 import("~components/general-card").then(f => f.default());
 
 export default (): void => defineComponent("cards-column", CardsColumn);
 export class CardsColumn extends LitElement {
     @property() title!: string;
-    @property() cards!: Card[];
+    @state() cards: Card[] = [];
 
     render(): TemplateResult {
         return html`
@@ -21,6 +21,13 @@ export class CardsColumn extends LitElement {
                 </div>
             </div>
         `;
+    }
+
+    connectedCallback() {
+        super.connectedCallback();
+        getCardsFor(this.title as ContentSections).then(v => {
+            this.cards = v;
+        });
     }
 
     static get styles(): CSSResultGroup {

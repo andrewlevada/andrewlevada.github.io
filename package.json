@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.6.0",
-    "lit": "^2.0.2"
+    "lit": "^2.0.2",
+    "public-google-sheets-parser": "^1.2.6"
   }
 }
