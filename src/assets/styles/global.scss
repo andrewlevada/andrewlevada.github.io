@@ -58,6 +58,30 @@ a {
   text-decoration-line: underline;
 }
 
+button {
+  padding: vw(8px) vw(14px) vw(8px) vw(12px);
+  background: $primary-color;
+  transition: background-color 100ms ease;
+  border-radius: vw(14px);
+
+  & > *:first-child {
+    margin-right: vw(12px) !important;
+  }
+
+  img {
+    width: vw(28px);
+    height: vw(28px);
+  }
+
+  * {
+    color: $surface-color !important;
+  }
+
+  &:hover {
+    background: $dark-primary-color;
+  }
+}
+
 .border {
   border: solid 2px $primary-color;
 }

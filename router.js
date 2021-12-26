@@ -13,7 +13,7 @@
 // outputPath - (optional) overrides url set from source
 
 module.exports = [
-  // Here outputPath is optional
-  // If it's not set, output will be the same as source
-  { source: "/landing", title: "Andrew Levada", outputPath: "/" },
+    // Here outputPath is optional
+    // If it's not set, output will be the same as source
+    { source: "/landing", title: "Andrew Levada", outputPath: "/" },
 ];
