@@ -25,6 +25,7 @@ export function getCardsFor(section: ContentSections): Promise<Card[]> {
         link: v.Link,
         href: v["Link URL"],
         tags: trimArray([v.Tag1, v.Tag2, v.Tag3]),
+        description: v.Description,
     }) as Card));
 }
 
