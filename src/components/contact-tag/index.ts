@@ -11,7 +11,7 @@ export class ContactTag extends LitElement {
 
     render(): TemplateResult {
         return html`
-            <a class="flex row align-center" href=${contactsMap[this.label.toLowerCase()]} target="_top">
+            <a class="flex row align-center" href=${contactsMap[this.label.toLowerCase()]} target="_blank">
                 <img src="${this.iconSrc}" alt="null">
                 <h2>${this.label === "email" ? "levada.andrew@gmail.com" : this.label}</h2>
             </a>

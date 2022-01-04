@@ -33,7 +33,11 @@ export class CardsColumn extends LitElement {
     static get styles(): CSSResultGroup {
         return [...componentStyles, css`
           .header {
-            height: 4.47vw;
+            height: 76px;
+          }
+          
+          .header > * {
+            align-self: center;
           }
           
           .cards > * {

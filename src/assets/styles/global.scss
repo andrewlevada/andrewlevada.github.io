@@ -1,5 +1,4 @@
 @import "./reset";
-@import "./tools";
 
 $primary-color: #33AD6A;
 $dark-primary-color: #14904C;
@@ -17,56 +16,56 @@ h1 {
   font-family: Bitter, serif;
   font-style: normal;
   font-weight: 600;
-  font-size: vw(64px);
-  line-height: vw(87px);
+  font-size: 64px;
+  line-height: 87px;
 }
 
 h2 {
   font-family: Ubuntu, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: vw(20px);
-  line-height: vw(24px);
+  font-size: 20px;
+  line-height: 24px;
 }
 
 h3 {
   font-family: Bitter, serif;
   font-style: normal;
   font-weight: bold;
-  font-size: vw(20px);
-  line-height: vw(28px);
+  font-size: 20px;
+  line-height: 28px;
 }
 
 p {
   font-family: Bitter, serif;
   font-style: normal;
   font-weight: 500;
-  font-size: vw(16px);
-  line-height: vw(24px);
+  font-size: 16px;
+  line-height: 24px;
 }
 
 a {
   font-family: Bitter, serif;
   font-style: italic;
   font-weight: 500;
-  font-size: vw(16px);
-  line-height: vw(24px);
+  font-size: 16px;
+  line-height: 24px;
   text-decoration-line: underline;
 }
 
 button {
-  padding: vw(8px) vw(14px) vw(8px) vw(12px);
+  padding: 8px 14px 8px 12px;
   background: $primary-color;
   transition: background-color 100ms ease;
-  border-radius: vw(14px);
+  border-radius: 14px;
 
   & > *:first-child {
-    margin-right: vw(12px) !important;
+    margin-right: 12px !important;
   }
 
   img {
-    width: vw(28px);
-    height: vw(28px);
+    width: 28px;
+    height: 28px;
   }
 
   * {

@@ -2,19 +2,19 @@
 
 @mixin flex-gap($margin) {
   & > *:not(:last-child) {
-    #{$margin}: vw(16px);
+    #{$margin}: 16px;
   }
 
   &.s-64 > *:not(:last-child) {
-    #{$margin}: vw(64px);
+    #{$margin}: 64px;
   }
 
   &.s-40 > *:not(:last-child) {
-    #{$margin}: vw(40px);
+    #{$margin}: 40px;
   }
 
   &.s-24 > *:not(:last-child) {
-    #{$margin}: vw(24px);
+    #{$margin}: 24px;
   }
 }
 
@@ -37,8 +37,8 @@
     }
   }
 
-  &.pad-64 { padding: vw(64px); }
-  &.pad-24 { padding: vw(24px); }
+  &.pad-64 { padding: 64px; }
+  &.pad-24 { padding: 24px; }
 
   &.justify-start { justify-content: flex-start }
   &.justify-center { justify-content: center }
