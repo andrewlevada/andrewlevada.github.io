@@ -1,24 +1,22 @@
-import { html, LitElement, TemplateResult, CSSResultGroup, css } from "lit";
+import { html, LitElement, TemplateResult, CSSResultGroup } from "lit";
 import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
-import printIcon from "../assets/icons/print.svg";
+import scopedStyles from "./styles.module.scss";
+import printIcon from "../../assets/icons/print.svg";
 
 export default (): void => defineComponent("print-button", PrintButton);
+// noinspection HtmlUnknownTarget
 export class PrintButton extends LitElement {
     render(): TemplateResult {
         return html`
-            <button class="flex row gap align-center">
+            <a class="flex row gap align-center" href="/print.pdf">
                 <img src="${printIcon}" alt="null">
                 <h2>Get PDF</h2>
-            </button>
+            </a>
         `;
     }
 
     static get styles(): CSSResultGroup {
-        return [...componentStyles, css`
-          :host {
-            min-width: fit-content;
-          }
-        `];
+        return [...componentStyles, scopedStyles as never];
     }
 }

@@ -53,30 +53,6 @@ a {
   text-decoration-line: underline;
 }
 
-button {
-  padding: 8px 14px 8px 12px;
-  background: $primary-color;
-  transition: background-color 100ms ease;
-  border-radius: 14px;
-
-  & > *:first-child {
-    margin-right: 12px !important;
-  }
-
-  img {
-    width: 28px;
-    height: 28px;
-  }
-
-  * {
-    color: $surface-color !important;
-  }
-
-  &:hover {
-    background: $dark-primary-color;
-  }
-}
-
 .border {
   border: solid 2px $primary-color;
 }

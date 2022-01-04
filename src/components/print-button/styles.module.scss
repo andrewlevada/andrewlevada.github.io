@@ -1,0 +1,30 @@
+@import "../../assets/styles/global";
+
+:host {
+  min-width: fit-content;
+}
+
+a {
+  padding: 8px 14px 8px 12px;
+  background: $primary-color;
+  transition: background-color 100ms ease;
+  border-radius: 14px;
+
+  & > *:first-child {
+    margin-right: 12px !important;
+  }
+
+  img {
+    width: 28px;
+    height: 28px;
+  }
+
+  * {
+    color: $surface-color !important;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background: $dark-primary-color;
+  }
+}
