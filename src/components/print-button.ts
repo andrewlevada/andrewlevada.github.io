@@ -1,4 +1,4 @@
-import { html, LitElement, TemplateResult, CSSResultGroup } from "lit";
+import { html, LitElement, TemplateResult, CSSResultGroup, css } from "lit";
 import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
 import printIcon from "../assets/icons/print.svg";
@@ -15,6 +15,10 @@ export class PrintButton extends LitElement {
     }
 
     static get styles(): CSSResultGroup {
-        return [...componentStyles];
+        return [...componentStyles, css`
+          :host {
+            min-width: fit-content;
+          }
+        `];
     }
 }
