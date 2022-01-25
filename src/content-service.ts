@@ -5,14 +5,14 @@ const parser = new PublicGoogleSheetsParser();
 
 export interface Card {
     title: string;
-    text: string;
+    text: string | undefined;
     link: string;
     href: string;
     tags: string[];
 }
 
 export interface ProjectCard extends Card {
-    description: string;
+    description: string | undefined;
 }
 
 export type ContentSections = "jobs" | "projects" | "education";
