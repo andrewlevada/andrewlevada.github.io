@@ -15,7 +15,7 @@ export class CardsColumn extends LitElement {
     render(): TemplateResult {
         return html`
             <div class="flex col full-width wrapper-${this.header}">
-                <div class="header flex pad-24"><h2>${this.header}</h2></div>
+                <div class="header flex pad-24"><h4>${this.header}</h4></div>
                 <div class="flex col full-width cards">
                     ${this.cards.map(card => html`<general-card .content=${card} .isProject=${this.header === "Projects"}></general-card>`)}
                 </div>

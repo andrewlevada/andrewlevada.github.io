@@ -11,40 +11,61 @@
 
 h1 {
   font-family: Bitter, serif;
-  font-style: normal;
-  font-weight: 600;
+  font-style: italic;
+  font-weight: 700;
   font-size: 64px;
-  line-height: 87px;
+  line-height: 72px;
 }
 
 h2 {
-  font-family: Ubuntu, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
+  font-family: Bitter, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 46px;
+  line-height: 72px;
 }
 
 h3 {
   font-family: Bitter, serif;
   font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 28px;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+h4 {
+  font-family: Bitter, serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+
+  &.sans {
+    font-family: Ubuntu, sans-serif;
+    font-weight: 500;
+  }
 }
 
 p {
   font-family: Bitter, serif;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 16px;
-  line-height: 28px;
+  line-height: 24.5px;
+
+  &.subtitle {
+    font-weight:500;
+  }
+
+  &.italic {
+    font-style: italic;
+  }
 }
 
 a {
   font-family: Bitter, serif;
   font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   text-decoration-line: underline;

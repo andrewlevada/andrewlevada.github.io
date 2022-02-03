@@ -15,8 +15,8 @@ export class GeneralCard extends LitElement {
     render(): TemplateResult {
         return html`
             <div class="flex col gap pad-24 full-width">
-                <h3>${this.content.title}</h3>
-                ${this.hasDescription() ? html`<p class="description">${(this.content as ProjectCard).description}</p>` : ""}
+                <h4>${this.content.title}</h4>
+                ${this.hasDescription() ? html`<p class="subtitle">${(this.content as ProjectCard).description}</p>` : ""}
                 ${this.content.text ? html`<p>${this.content.text}</p>` : ""}
                 <div class="flex row justify-between">
                     <a href=${this.content.href}>${this.content.link}</a>
@@ -33,11 +33,6 @@ export class GeneralCard extends LitElement {
     }
 
     static get styles(): CSSResultGroup {
-        return [...componentStyles, css`
-          .description {
-            font-style: italic;
-            font-weight: 600;
-          }
-        `];
+        return [...componentStyles, css``];
     }
 }

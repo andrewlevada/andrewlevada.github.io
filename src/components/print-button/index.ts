@@ -11,7 +11,7 @@ export class PrintButton extends LitElement {
         return html`
             <a class="flex row gap align-center" href="/print.pdf">
                 <img src="${printIcon}" alt="null">
-                <h2>Get PDF</h2>
+                <p>Get PDF</p>
             </a>
         `;
     }
