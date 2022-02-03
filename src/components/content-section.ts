@@ -24,11 +24,13 @@ export class ContentSection extends LitElement {
 
     static get styles(): CSSResultGroup {
         return [...componentStyles, css`
+          @import "../assets/styles/theming.css";
+          
           .wrapper > * { flex-grow: 1; }
           .col-1 { flex-basis: 36%; }
           .col-2 { flex-basis: 42%; }
           .col-3 { flex-basis: 22%; }
-          .footer { border-top: solid 2px #33AD6A }
+          .footer { border-top: solid 2px var(--primary-color) }
         `];
     }
 }

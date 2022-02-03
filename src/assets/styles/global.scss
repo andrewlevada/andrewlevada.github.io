@@ -1,15 +1,12 @@
-@import "./reset";
-
-$primary-color: #33AD6A;
-$dark-primary-color: #14904C;
-$surface-color: #FCF6F5;
+@use "./theming.css";
+@use "./reset.css";
 
 :host {
   box-sizing: border-box;
 }
 
 * {
-  color: $primary-color;
+  color: var(--primary-color);
 }
 
 h1 {
@@ -54,5 +51,5 @@ a {
 }
 
 .border {
-  border: solid 2px $primary-color;
+  border: solid 2px var(--primary-color);
 }

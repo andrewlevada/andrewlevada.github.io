@@ -32,6 +32,8 @@ export class CardsColumn extends LitElement {
 
     static get styles(): CSSResultGroup {
         return [...componentStyles, css`
+          @import "../assets/styles/theming.css";
+          
           .header {
             height: 76px;
           }
@@ -41,12 +43,12 @@ export class CardsColumn extends LitElement {
           }
           
           .cards > * {
-            border-top: solid 2px #33AD6A;
+            border-top: solid 2px var(--primary-color);
           }
           
           .wrapper-Projects {
-            border-left: solid 2px #33AD6A;
-            border-right: solid 2px #33AD6A;
+            border-left: solid 2px var(--primary-color);
+            border-right: solid 2px var(--primary-color);
           }
         `];
     }
