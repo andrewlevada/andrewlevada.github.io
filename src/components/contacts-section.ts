@@ -7,7 +7,7 @@ export class ContactsSection extends LitElement {
     render(): TemplateResult {
         return html`
             <div class="wrapper flex row justify-between align-center full-width border">
-                <h4>Contact me:</h4>
+                <h4>Contact me here</h4>
             </div>
         `;
     }

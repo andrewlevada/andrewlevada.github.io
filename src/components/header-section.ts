@@ -17,20 +17,22 @@ export class HeaderSection extends LitElement {
         return html`
             <div class="flex col full-width gap s-40">
                 <div class="flex row justify-between full-width">
-                    <h3>Hello! I am Andrew.</h3>
+                    <h3>Hello! I am Andrew 🖐️ </h3>
                     <print-button></print-button>
                 </div>
 
-                <div class="flex row justify-between full-width">
+                <div class="middle flex row justify-between full-width">
                     <div class="color-text">
                         <h1>${staticHtml`${unsafeStatic(this.titleText)}`}</h1>
                         <img src=${textColorImage} alt="null">
                     </div>
                     
+                    <div class="divider"></div>
+                    
                     <div class="status-block flex col gap s-12">
                         <h2>What am I up to?</h2>
                         <p class="italic">${staticHtml`${unsafeStatic(this.statusText)}`}</p>
-                        <p class="subtitle italic">However, I am always open to new <br>and interesting opportunities.</p>
+                        <p class="subtitle">However, I am always open to new <br>and interesting opportunities.</p>
                     </div>
                 </div>
             </div>
@@ -45,6 +47,11 @@ export class HeaderSection extends LitElement {
 
     static get styles(): CSSResultGroup {
         return [...componentStyles, css`
+          .middle {
+            position: absolute;
+            top: 26%;
+          }
+          
           .color-text {
             position: relative;
           }
@@ -68,6 +75,16 @@ export class HeaderSection extends LitElement {
           
           .status-block > * {
             text-align: end;
+          }
+          
+          .divider::after {
+            content: "";
+            position: absolute;
+            top: -54%;
+            transform: translateX(24px);
+            width: 1px;
+            height: 500px;
+            background: linear-gradient(rgba(87, 98, 114, 0), rgba(87, 98, 114, 0.72), rgba(87, 98, 114, 0));
           }
         `];
     }
