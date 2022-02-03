@@ -1,9 +1,10 @@
-import { html, LitElement, TemplateResult } from "lit";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { html as staticHtml, unsafeStatic } from "lit/static-html.js";
 import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
 import { state } from "lit/decorators.js";
 import { getTextFor } from "~src/content-service";
+import textColorImage from "~src/assets/text_color.png";
 
 import("~components/print-button").then(f => f.default());
 
@@ -16,7 +17,10 @@ export class HeaderSection extends LitElement {
         return html`
             <div class="flex col full-width gap s-40">
                 <div class="flex row justify-between full-width">
-                    <h1>${staticHtml`${unsafeStatic(this.titleText)}`}</h1>
+                    <div class="color-text">
+                        <h1>${staticHtml`${unsafeStatic(this.titleText)}`}</h1>
+                        <img src=${textColorImage} alt="null">
+                    </div>
                     <print-button></print-button>
                 </div>
             </div>
@@ -29,7 +33,25 @@ export class HeaderSection extends LitElement {
         getTextFor("status").then(v => { this.statusText = v || ""; });
     }
 
-    static get styles(): CSSStyleSheet[] {
-        return [...componentStyles];
+    static get styles(): CSSResultGroup {
+        return [...componentStyles, css`
+          .color-text {
+            position: relative;
+            overflow: hidden;
+          }
+          
+          .color-text h1 {
+            color: #000;
+          }
+          
+          .color-text img {
+            mix-blend-mode: lighten;
+            position: absolute;
+            top: 1%;
+            left: -2%;
+            height: auto;
+            width: 104%;
+          }
+        `];
     }
 }
