@@ -22,6 +22,9 @@ a {
   * {
     color: var(--surface-color) !important;
     text-decoration: none;
+    font-family: Ubuntu, sans-serif !important;
+    font-weight: 500;
+    font-size: 20px;
   }
 
   &:hover {

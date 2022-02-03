@@ -17,11 +17,21 @@ export class HeaderSection extends LitElement {
         return html`
             <div class="flex col full-width gap s-40">
                 <div class="flex row justify-between full-width">
+                    <h3>Hello! I am Andrew.</h3>
+                    <print-button></print-button>
+                </div>
+
+                <div class="flex row justify-between full-width">
                     <div class="color-text">
                         <h1>${staticHtml`${unsafeStatic(this.titleText)}`}</h1>
                         <img src=${textColorImage} alt="null">
                     </div>
-                    <print-button></print-button>
+                    
+                    <div class="status-block flex col gap s-12">
+                        <h2>What am I up to?</h2>
+                        <p class="italic">${staticHtml`${unsafeStatic(this.statusText)}`}</p>
+                        <p class="subtitle italic">However, I am always open to new <br>and interesting opportunities.</p>
+                    </div>
                 </div>
             </div>
         `;
@@ -37,7 +47,6 @@ export class HeaderSection extends LitElement {
         return [...componentStyles, css`
           .color-text {
             position: relative;
-            overflow: hidden;
           }
           
           .color-text h1 {
@@ -51,6 +60,14 @@ export class HeaderSection extends LitElement {
             left: -2%;
             height: auto;
             width: 104%;
+          }
+          
+          .status-block {
+            max-width: 420px;
+          }
+          
+          .status-block > * {
+            text-align: end;
           }
         `];
     }

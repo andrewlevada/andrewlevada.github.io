@@ -16,6 +16,10 @@
   &.s-24 > *:not(:last-child) {
     #{$margin}: 24px;
   }
+
+  &.s-12 > *:not(:last-child) {
+    #{$margin}: 12px;
+  }
 }
 
 .flex {
