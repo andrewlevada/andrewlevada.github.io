@@ -16,6 +16,12 @@ export interface ProjectCard extends Card {
 }
 
 export type ContentSections = "jobs" | "projects" | "education";
+export type RemoteTextLabel = "title" | "status";
+
+export function getTextFor(label: RemoteTextLabel): Promise<string | null> {
+    return parser.parse(spreadsheetId, "General")
+        .then(data => data.find(v => v.Label.toLowerCase() === label)?.Text as string);
+}
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function getCardsFor(section: ContentSections): Promise<Card[]> {

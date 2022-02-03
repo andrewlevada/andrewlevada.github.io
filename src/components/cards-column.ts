@@ -35,7 +35,7 @@ export class CardsColumn extends LitElement {
           @import "../assets/styles/theming.css";
           
           .header {
-            height: 76px;
+            height: 62px;
           }
           
           .header > * {

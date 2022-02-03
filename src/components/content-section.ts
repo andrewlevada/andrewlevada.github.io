@@ -14,10 +14,6 @@ export class ContentSection extends LitElement {
                         <cards-column class=${`col-${i + 1}`} header=${v}></cards-column>
                     `)}
                 </div>
-
-                <div class="flex pad-24 full-width footer">
-                    <h2>Currently I study at school and apply to Innopolis University for bachelors program whilst my main project focus is on scaling Sapientia Temporis Bot.</h2>
-                </div>
             </div>
         `;
     }
@@ -30,7 +26,6 @@ export class ContentSection extends LitElement {
           .col-1 { flex-basis: 36%; }
           .col-2 { flex-basis: 42%; }
           .col-3 { flex-basis: 22%; }
-          .footer { border-top: solid 2px var(--primary-color) }
         `];
     }
 }
