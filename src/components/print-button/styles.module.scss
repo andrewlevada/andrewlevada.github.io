@@ -9,6 +9,7 @@ a {
   background: var(--primary-color);
   transition: background-color 100ms ease;
   border-radius: 14px;
+  text-decoration: none !important;
 
   & > *:first-child {
     margin-right: 12px !important;
@@ -21,7 +22,7 @@ a {
 
   * {
     color: var(--surface-color) !important;
-    text-decoration: none;
+    text-decoration: none !important;
     font-family: Ubuntu, sans-serif !important;
     font-weight: 500;
     font-size: 20px;

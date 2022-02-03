@@ -39,11 +39,6 @@ h4 {
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
-
-  &.sans {
-    font-family: Ubuntu, sans-serif;
-    font-weight: 500;
-  }
 }
 
 p {
@@ -70,6 +65,21 @@ a {
   font-size: 16px;
   line-height: 24px;
   text-decoration-line: underline;
+
+  transition: color 100ms ease;
+
+  &.header {
+    font-family: Ubuntu, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    text-decoration-line: none;
+  }
+
+  &:hover {
+    color: var(--dark-primary-color);
+  }
 }
 
 .border {
