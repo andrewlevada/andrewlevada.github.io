@@ -3,7 +3,6 @@ import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
 
 import("~components/print-button").then(f => f.default());
-import("~components/contact-tag").then(f => f.default());
 
 export default (): void => defineComponent("header-section", HelloText);
 export class HelloText extends LitElement {
