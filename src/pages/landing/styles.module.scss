@@ -45,6 +45,8 @@ content-section {
   top: calc(100vh - 62px - 16px);
   animation: bottom-in var(--launch-anim-length) ease-out var(--launch-anim-delay);
   animation-fill-mode: both;
+
+  padding-bottom: 64px;
 }
 
 @keyframes bottom-in {
