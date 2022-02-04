@@ -2,4 +2,7 @@
     --primary-color: #495F81;
     --dark-primary-color: #E04C78;
     --surface-color: #FBF7F9;
+
+    --launch-anim-delay: 600ms;
+    --launch-anim-length: 600ms;
 }

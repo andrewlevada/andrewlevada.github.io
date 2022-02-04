@@ -36,9 +36,18 @@ header-section {
 contacts-section {
   // - sections heights - scroll gap - gap between sections
   top: calc(100vh - 62px * 2 - 16px - 32px);
+  animation: bottom-in var(--launch-anim-length) ease-out var(--launch-anim-delay);
+  animation-fill-mode: both;
 }
 
 content-section {
   // - section height - scroll gap
   top: calc(100vh - 62px - 16px);
+  animation: bottom-in var(--launch-anim-length) ease-out var(--launch-anim-delay);
+  animation-fill-mode: both;
+}
+
+@keyframes bottom-in {
+  from { transform: translateY(62px * 2 + 32px * 2) }
+  to { transform: translateY(0) }
 }

@@ -54,13 +54,29 @@ export class HeaderSection extends LitElement {
 
     static get styles(): CSSResultGroup {
         return [...componentStyles, css`
+          @import "../assets/styles/theming.css";
+          
           .middle {
             position: absolute;
             top: 26%;
           }
           
+          .middle::after {
+            content: "";
+            position: absolute;
+            top: -2%;
+            left: -2%;
+            width: 140%;
+            height: 140%;
+            background-color: var(--surface-color);
+            opacity: 1;
+            animation: disappear var(--launch-anim-length) ease-out var(--launch-anim-delay);
+            animation-fill-mode: forwards;
+          }
+          
           .color-text {
             position: relative;
+            min-width: 770px;
           }
           
           .color-text h1 {
@@ -93,6 +109,19 @@ export class HeaderSection extends LitElement {
             width: 1px;
             height: 500px;
             background: linear-gradient(rgba(87, 98, 114, 0), rgba(87, 98, 114, 0.72), rgba(87, 98, 114, 0));
+            opacity: 0;
+            animation: appear var(--launch-anim-length) ease-out var(--launch-anim-delay);
+            animation-fill-mode: forwards;
+          }
+
+          @keyframes appear {
+            from { opacity: 0 }
+            to { opacity: 1 }
+          }
+
+          @keyframes disappear {
+            from { opacity: 1 }
+            to { opacity: 0 }
           }
         `];
     }
