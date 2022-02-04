@@ -26,9 +26,9 @@ export class HeaderSection extends LitElement {
                 <div class="middle flex row justify-between full-width">
                     <h1 class="colored-text">${staticHtml`${unsafeStatic(this.titleText)}`}</h1>
                     
-                    <div class="divider"></div>
+                    <div class="divider desktop-only"></div>
                     
-                    <div class="status-block flex col gap s-12">
+                    <div class="status-block flex col gap s-12 desktop-only">
                         <h2>What am I up to?</h2>
                         <p class="italic">${staticHtml`${unsafeStatic(this.statusText)}`}</p>
                         <p class="subtitle">However, I am always open to new <br>and interesting opportunities.</p>
@@ -51,18 +51,8 @@ export class HeaderSection extends LitElement {
           .middle {
             position: absolute;
             top: 26%;
-          }
 
-          .middle::after {
-            content: "";
-            position: absolute;
-            top: -2%;
-            left: -2%;
-            width: 140%;
-            height: 140%;
-            background-color: var(--surface-color);
-            pointer-events: none;
-            animation: disappear var(--launch-anim-length) ease-out var(--launch-anim-delay);
+            animation: appear var(--launch-anim-length) ease-out var(--launch-anim-delay);
             animation-fill-mode: both;
           }
 
@@ -91,8 +81,6 @@ export class HeaderSection extends LitElement {
             width: 1px;
             height: 500px;
             background: linear-gradient(rgba(87, 98, 114, 0), rgba(87, 98, 114, 0.72), rgba(87, 98, 114, 0));
-            animation: appear var(--launch-anim-length) ease-out var(--launch-anim-delay);
-            animation-fill-mode: both;
           }
 
           @keyframes appear {
@@ -101,15 +89,6 @@ export class HeaderSection extends LitElement {
             }
             to {
               opacity: 1
-            }
-          }
-
-          @keyframes disappear {
-            from {
-              opacity: 1
-            }
-            to {
-              opacity: 0
             }
           }
         `];
