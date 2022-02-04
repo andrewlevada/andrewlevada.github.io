@@ -19,7 +19,7 @@ export class GeneralCard extends LitElement {
                 ${this.hasDescription() ? html`<p class="subtitle">${(this.content as ProjectCard).description}</p>` : ""}
                 ${this.content.text ? html`<p>${this.content.text}</p>` : ""}
                 <div class="flex row justify-between">
-                    <a href=${this.content.href}>${this.content.link}</a>
+                    <a href=${this.content.href} target="_blank">${this.content.link}</a>
                 </div>
             </div>
         `;
