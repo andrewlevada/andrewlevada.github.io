@@ -1,4 +1,4 @@
-import { css, CSSResultGroup, html, LitElement, PropertyValues, TemplateResult } from "lit";
+import { css, CSSResultGroup, html, LitElement, TemplateResult, unsafeCSS } from "lit";
 import { html as staticHtml, unsafeStatic } from "lit/static-html.js";
 import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
@@ -24,10 +24,7 @@ export class HeaderSection extends LitElement {
                 </div>
 
                 <div class="middle flex row justify-between full-width">
-                    <div class="color-text">
-                        <h1>${staticHtml`${unsafeStatic(this.titleText)}`}</h1>
-                        <img src=${textColorImage} alt="null">
-                    </div>
+                    <h1 class="colored-text">${staticHtml`${unsafeStatic(this.titleText)}`}</h1>
                     
                     <div class="divider"></div>
                     
@@ -49,18 +46,13 @@ export class HeaderSection extends LitElement {
         });
     }
 
-    protected firstUpdated(_changedProperties: PropertyValues) {
-        super.firstUpdated(_changedProperties);
-        this.imageColorText.addEventListener("dragstart", e => e.preventDefault());
-    }
-
     static get styles(): CSSResultGroup {
         return [...componentStyles, css`
           .middle {
             position: absolute;
             top: 26%;
           }
-          
+
           .middle::after {
             content: "";
             position: absolute;
@@ -73,34 +65,24 @@ export class HeaderSection extends LitElement {
             animation: disappear var(--launch-anim-length) ease-out var(--launch-anim-delay);
             animation-fill-mode: both;
           }
-          
-          .color-text {
-            position: relative;
+
+          .colored-text {
             min-width: 770px;
+            background-image: url(${unsafeCSS(textColorImage)});
+            //noinspection CssInvalidPropertyValue
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: rgba(0, 0, 0, 0.01);
           }
-          
-          .color-text h1 {
-            color: #000;
-          }
-          
-          .color-text img {
-            mix-blend-mode: lighten;
-            position: absolute;
-            top: 1%;
-            left: -2%;
-            height: auto;
-            width: 104%;
-            pointer-events: none;
-          }
-          
+
           .status-block {
             max-width: 420px;
           }
-          
+
           .status-block > * {
             text-align: end;
           }
-          
+
           .divider::after {
             content: "";
             position: absolute;
@@ -114,13 +96,21 @@ export class HeaderSection extends LitElement {
           }
 
           @keyframes appear {
-            from { opacity: 0 }
-            to { opacity: 1 }
+            from {
+              opacity: 0
+            }
+            to {
+              opacity: 1
+            }
           }
 
           @keyframes disappear {
-            from { opacity: 1 }
-            to { opacity: 0 }
+            from {
+              opacity: 1
+            }
+            to {
+              opacity: 0
+            }
           }
         `];
     }
