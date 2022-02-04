@@ -56,8 +56,6 @@ export class HeaderSection extends LitElement {
 
     static get styles(): CSSResultGroup {
         return [...componentStyles, css`
-          @import "../assets/styles/theming.css";
-          
           .middle {
             position: absolute;
             top: 26%;

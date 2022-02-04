@@ -36,8 +36,6 @@ export class CardsColumn extends LitElement {
 
     static get styles(): CSSResultGroup {
         return [...componentStyles, css`
-          @import "../assets/styles/theming.css";
-
           .header {
             height: 62px;
           }

@@ -20,8 +20,6 @@ export class ContentSection extends LitElement {
 
     static get styles(): CSSResultGroup {
         return [...componentStyles, css`
-          @import "../assets/styles/theming.css";
-          
           .wrapper > * { flex-grow: 1; }
           .col-1 { flex-basis: 36%; }
           .col-2 { flex-basis: 42%; }
