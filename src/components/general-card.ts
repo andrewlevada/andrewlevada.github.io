@@ -1,4 +1,5 @@
 import { css, html, LitElement, TemplateResult } from "lit";
+import { html as staticHtml, unsafeStatic } from "lit/static-html.js";
 import { CSSResultGroup } from "lit";
 import { property } from "lit/decorators.js";
 import { componentStyles } from "~src/global";
@@ -17,7 +18,7 @@ export class GeneralCard extends LitElement {
             <div class="flex col gap pad-24 full-width">
                 <h4>${this.content.title}</h4>
                 ${this.hasDescription() ? html`<p class="subtitle">${(this.content as ProjectCard).description}</p>` : ""}
-                ${this.content.text ? html`<p>${this.content.text}</p>` : ""}
+                ${this.content.text ? staticHtml`<p>${unsafeStatic(this.content.text)}</p>` : ""}
                 <div class="flex row justify-between">
                     <a href=${this.content.href} target="_blank">${this.content.link}</a>
                 </div>
