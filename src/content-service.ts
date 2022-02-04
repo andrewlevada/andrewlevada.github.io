@@ -3,11 +3,14 @@ import PublicGoogleSheetsParser from "@andrewlevada/public-google-sheets-parser/
 const spreadsheetId = "1aj7yB3noTP8Y2pmHC4OuIj1Z-nY-0EoSAnNbMIF4kPo";
 const parser = new PublicGoogleSheetsParser();
 
-export interface Card {
+export interface BadgeCard {
     title: string;
+    href: string;
+}
+
+export interface Card extends BadgeCard {
     text: string | undefined;
     link: string;
-    href: string;
     tags: string[];
 }
 

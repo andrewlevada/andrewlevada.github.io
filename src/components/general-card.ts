@@ -25,9 +25,6 @@ export class GeneralCard extends LitElement {
             </div>
         `;
     }
-    // <div class="flex row gap">
-    //     ${this.content.tags.map(v => html`<tag-chip .text=${v}></tag-chip>`)}
-    // </div>
 
     private hasDescription(): boolean {
         return this.isProject && !!(this.content as ProjectCard).description;

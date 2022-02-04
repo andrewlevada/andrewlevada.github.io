@@ -12,7 +12,7 @@ export class ContactsSection extends LitElement {
                 <div class="flex row gap justify-end">
                     ${["Telegram", "Github", "LinkedIn", "Email"].map((v, i) => html`
                         ${i !== 0 ? html`<img src="${diamondImage}" alt="null">` : ""}
-                        <a class="header" href="${contactsMap[v.toLowerCase()]}" target="_blank">${v === "Email" ? "levada.andrew@gmail.com" : v}</a>
+                        <a class="header sans" href="${contactsMap[v.toLowerCase()]}" target="_blank">${v === "Email" ? "levada.andrew@gmail.com" : v}</a>
                     `)}
                 </div>
             </div>
