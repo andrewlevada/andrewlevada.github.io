@@ -18,9 +18,11 @@ export interface ProjectCard extends Card {
 export type ContentSections = "jobs" | "projects" | "education";
 export type RemoteTextLabel = "title" | "status";
 
-export function getTextFor(label: RemoteTextLabel): Promise<string | null> {
+// eslint-disable-next-line max-len
+export function getTextFor(labels: RemoteTextLabel[]): Promise<{ label: RemoteTextLabel, text: string }[]> {
     return parser.parse(spreadsheetId, "General")
-        .then(data => data.find(v => v.Label.toLowerCase() === label)?.Text as string);
+        .then(data => data.filter(v => labels.includes(v.Label.toLowerCase() as RemoteTextLabel))
+            .map(v => ({ label: v.Label.toLowerCase() as RemoteTextLabel, text: v.Text })));
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

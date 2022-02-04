@@ -43,8 +43,10 @@ export class HeaderSection extends LitElement {
 
     connectedCallback() {
         super.connectedCallback();
-        getTextFor("title").then(v => { this.titleText = v || ""; });
-        getTextFor("status").then(v => { this.statusText = v || ""; });
+        getTextFor(["title", "status"]).then(texts => {
+            // eslint-disable-next-line no-restricted-syntax
+            for (const v of texts) this[`${v.label}Text`] = v.text;
+        });
     }
 
     protected firstUpdated(_changedProperties: PropertyValues) {
@@ -69,9 +71,9 @@ export class HeaderSection extends LitElement {
             width: 140%;
             height: 140%;
             background-color: var(--surface-color);
-            opacity: 1;
+            pointer-events: none;
             animation: disappear var(--launch-anim-length) ease-out var(--launch-anim-delay);
-            animation-fill-mode: forwards;
+            animation-fill-mode: both;
           }
           
           .color-text {
@@ -109,9 +111,8 @@ export class HeaderSection extends LitElement {
             width: 1px;
             height: 500px;
             background: linear-gradient(rgba(87, 98, 114, 0), rgba(87, 98, 114, 0.72), rgba(87, 98, 114, 0));
-            opacity: 0;
             animation: appear var(--launch-anim-length) ease-out var(--launch-anim-delay);
-            animation-fill-mode: forwards;
+            animation-fill-mode: both;
           }
 
           @keyframes appear {
