@@ -1,8 +1,8 @@
-import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { css, CSSResultGroup, html, LitElement, PropertyValues, TemplateResult } from "lit";
 import { html as staticHtml, unsafeStatic } from "lit/static-html.js";
 import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
-import { state } from "lit/decorators.js";
+import { query, state } from "lit/decorators.js";
 import { getTextFor } from "~src/content-service";
 import textColorImage from "~src/assets/text_color.png";
 
@@ -12,6 +12,8 @@ export default (): void => defineComponent("header-section", HeaderSection);
 export class HeaderSection extends LitElement {
     @state() titleText: string = "";
     @state() statusText: string = "";
+
+    @query(".color-text img") imageColorText!: HTMLImageElement;
 
     render(): TemplateResult {
         return html`
@@ -45,6 +47,11 @@ export class HeaderSection extends LitElement {
         getTextFor("status").then(v => { this.statusText = v || ""; });
     }
 
+    protected firstUpdated(_changedProperties: PropertyValues) {
+        super.firstUpdated(_changedProperties);
+        this.imageColorText.addEventListener("dragstart", e => e.preventDefault());
+    }
+
     static get styles(): CSSResultGroup {
         return [...componentStyles, css`
           .middle {
@@ -67,6 +74,7 @@ export class HeaderSection extends LitElement {
             left: -2%;
             height: auto;
             width: 104%;
+            pointer-events: none;
           }
           
           .status-block {
