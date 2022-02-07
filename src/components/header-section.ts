@@ -18,12 +18,12 @@ export class HeaderSection extends LitElement {
     render(): TemplateResult {
         return html`
             <div class="flex col full-width gap s-40">
-                <div class="flex row justify-between full-width">
+                <div class="top-bar flex row justify-between full-width">
                     <h3>Hello! I am Andrew 🖐️ </h3>
                     <print-button></print-button>
                 </div>
 
-                <div class="middle flex row justify-between full-width">
+                <div class="middle flex row justify-between full-width hide-on-small">
                     <h1 class="colored-text">${staticHtml`${unsafeStatic(this.titleText)}`}</h1>
                     
                     <div class="divider desktop-only"></div>
@@ -81,6 +81,22 @@ export class HeaderSection extends LitElement {
             width: 1px;
             height: 500px;
             background: linear-gradient(rgba(87, 98, 114, 0), rgba(87, 98, 114, 0.72), rgba(87, 98, 114, 0));
+          }
+
+          @media screen and (max-width: 1023px) {
+            h3 {
+              width: 100%;
+              text-align: center;
+            }
+            
+            .top-bar {
+              flex-direction: column !important;
+              align-items: center;
+            }
+            
+            print-button {
+              margin-top: 30vh;
+            }
           }
 
           @keyframes appear {

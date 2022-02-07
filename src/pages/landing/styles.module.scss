@@ -25,6 +25,11 @@
     margin-right: 64px;
     left: 0;
     right: 0;
+
+    @media screen and (max-width: 1023px) {
+      margin-left: 16px;
+      margin-right: 16px;
+    }
   }
 }
 
