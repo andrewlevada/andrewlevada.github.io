@@ -14,7 +14,7 @@ export default class TestPage extends LitElement {
             <div class="flex col gap pad-64 full-width">
                 <header-section></header-section>
                 <contacts-section></contacts-section>
-                <content-section></content-section>
+                <content-section class="hide-on-small"></content-section>
             </div>
         `;
     }

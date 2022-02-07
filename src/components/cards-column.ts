@@ -47,11 +47,6 @@ export class CardsColumn extends LitElement {
           .cards > * {
             border-top: solid 2px var(--primary-color);
           }
-
-          .wrapper-Projects {
-            border-left: solid 2px var(--primary-color);
-            border-right: solid 2px var(--primary-color);
-          }
         `];
     }
 }
