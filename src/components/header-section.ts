@@ -2,16 +2,19 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult, unsafeCSS } from
 import { html as staticHtml, unsafeStatic } from "lit/static-html.js";
 import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
-import { query, state } from "lit/decorators.js";
-import { getTextFor } from "~src/content-service";
+import { property, query } from "lit/decorators.js";
 import textColorImage from "~src/assets/text_color.png";
 
 import("~components/print-button").then(f => f.default());
 
+export interface HeaderContent {
+    titleText: string;
+    statusText: string;
+}
+
 export default (): void => defineComponent("header-section", HeaderSection);
 export class HeaderSection extends LitElement {
-    @state() titleText: string = "";
-    @state() statusText: string = "";
+    @property({ type: Object }) content: HeaderContent | null = null;
 
     @query(".color-text img") imageColorText!: HTMLImageElement;
 
@@ -23,14 +26,14 @@ export class HeaderSection extends LitElement {
                     <print-button></print-button>
                 </div>
 
-                <div class="middle flex row justify-between full-width hide-on-small">
-                    <h1 class="colored-text">${staticHtml`${unsafeStatic(this.titleText)}`}</h1>
+                <div class="middle flex row justify-between full-width hide-on-small ${this.content ? "animate-open" : "hi"}">
+                    <h1 class="colored-text">${staticHtml`${unsafeStatic(this.content?.titleText || "")}`}</h1>
                     
                     <div class="divider desktop-only"></div>
                     
                     <div class="status-block flex col gap s-12 desktop-only">
                         <h2>What am I up to?</h2>
-                        <p class="italic">${staticHtml`${unsafeStatic(this.statusText)}`}</p>
+                        <p class="italic">${staticHtml`${unsafeStatic(this.content?.statusText || "")}`}</p>
                         <p class="subtitle">However, I am always open to new <br>and interesting opportunities.</p>
                     </div>
                 </div>
@@ -38,22 +41,17 @@ export class HeaderSection extends LitElement {
         `;
     }
 
-    connectedCallback() {
-        super.connectedCallback();
-        getTextFor(["title", "status"]).then(texts => {
-            // eslint-disable-next-line no-restricted-syntax
-            for (const v of texts) this[`${v.label}Text`] = v.text;
-        });
-    }
-
     static get styles(): CSSResultGroup {
         return [...componentStyles, css`
           .middle {
             position: absolute;
             top: 26%;
-
-            animation: appear var(--launch-anim-length) ease-out var(--launch-anim-delay);
-            animation-fill-mode: both;
+            opacity: 0;
+            animation-fill-mode: forwards !important;
+          }
+          
+          .middle.animate-open {
+            animation: appear var(--launch-anim-length) ease-out;
           }
 
           .colored-text {
@@ -88,12 +86,12 @@ export class HeaderSection extends LitElement {
               width: 100%;
               text-align: center;
             }
-            
+
             .top-bar {
               flex-direction: column !important;
               align-items: center;
             }
-            
+
             print-button {
               margin-top: 30vh;
             }
