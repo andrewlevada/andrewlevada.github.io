@@ -26,7 +26,7 @@ export class HeaderSection extends LitElement {
                     <print-button></print-button>
                 </div>
 
-                <div class="middle flex row justify-between full-width hide-on-small ${this.content ? "animate-open" : "hi"}">
+                <div class="middle flex row justify-between full-width ${this.content ? "animate-open" : "hi"}">
                     <h1 class="colored-text">${staticHtml`${unsafeStatic(this.content?.titleText || "")}`}</h1>
                     
                     <div class="divider desktop-only"></div>
@@ -79,22 +79,6 @@ export class HeaderSection extends LitElement {
             width: 1px;
             height: 500px;
             background: linear-gradient(rgba(87, 98, 114, 0), rgba(87, 98, 114, 0.72), rgba(87, 98, 114, 0));
-          }
-
-          @media screen and (max-width: 1023px) {
-            h3 {
-              width: 100%;
-              text-align: center;
-            }
-
-            .top-bar {
-              flex-direction: column !important;
-              align-items: center;
-            }
-
-            print-button {
-              margin-top: 30vh;
-            }
           }
 
           @keyframes appear {
