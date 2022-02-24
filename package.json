@@ -1,6 +1,6 @@
 {
   "name": "ultimate-cv",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "build": "npm run-script lint && webpack --config webpack.prod.js",
@@ -49,8 +49,8 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@andrewlevada/public-google-sheets-parser": "^1.2.10",
     "@webcomponents/webcomponentsjs": "^2.6.0",
-    "lit": "^2.1.2",
-    "@andrewlevada/public-google-sheets-parser": "^1.2.10"
+    "lit": "^2.1.2"
   }
 }
