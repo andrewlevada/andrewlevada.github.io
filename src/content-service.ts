@@ -12,7 +12,6 @@ export interface Card extends BadgeCard {
     text: string | undefined;
     link: string;
     isList: boolean;
-    tags: string[];
 }
 
 export interface ProjectCard extends Card {
@@ -37,18 +36,10 @@ export function getCardsFor(section: ContentSections): Promise<Card[]> {
         link: v.Link,
         href: v["Link URL"],
         isList: v["Is List"] === "Yes",
-        tags: trimArray([v.Tag1, v.Tag2, v.Tag3]),
         description: v.Description,
     }) as Card));
 }
 
 function capitalize(s: string): string {
     return s.charAt(0).toUpperCase() + s.substring(1);
-}
-
-function trimArray<T>(a: T[]): T[] {
-    const n = [];
-    // eslint-disable-next-line no-restricted-syntax
-    for (const i of a) if (i !== undefined) n.push(i);
-    return n;
 }

@@ -5,8 +5,6 @@ import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
 import { BadgeCard } from "~src/content-service";
 
-import("~components/tag-chip").then(f => f.default());
-
 export default (): void => defineComponent("badge-card", BadgeCardElement);
 export class BadgeCardElement extends LitElement {
     @property({ type: Object }) content!: BadgeCard;

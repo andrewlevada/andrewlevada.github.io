@@ -6,8 +6,6 @@ import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
 import { Card, ProjectCard } from "~src/content-service";
 
-import("~components/tag-chip").then(f => f.default());
-
 export default (): void => defineComponent("general-card", GeneralCard);
 export class GeneralCard extends LitElement {
     @property() content!: Card;
