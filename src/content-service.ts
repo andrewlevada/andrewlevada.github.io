@@ -11,6 +11,7 @@ export interface BadgeCard {
 export interface Card extends BadgeCard {
     text: string | undefined;
     link: string;
+    isList: boolean;
     tags: string[];
 }
 
@@ -35,6 +36,7 @@ export function getCardsFor(section: ContentSections): Promise<Card[]> {
         text: v.Text,
         link: v.Link,
         href: v["Link URL"],
+        isList: v["Is List"] === "Yes",
         tags: trimArray([v.Tag1, v.Tag2, v.Tag3]),
         description: v.Description,
     }) as Card));

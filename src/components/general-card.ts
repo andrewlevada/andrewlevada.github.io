@@ -18,16 +18,30 @@ export class GeneralCard extends LitElement {
             <div class="flex col gap pad-24 full-width">
                 <h4>${this.content.title}</h4>
                 ${this.hasDescription() ? html`<p class="subtitle">${(this.content as ProjectCard).description}</p>` : ""}
-                ${this.content.text ? staticHtml`<p>${unsafeStatic(this.content.text)}</p>` : ""}
-                <div class="flex row justify-between">
-                    <a href=${this.content.href} target="_blank">${this.content.link}</a>
-                </div>
+
+                ${this.contentTemplate()}
+
+                ${this.content.link ? html`
+                    <div class="flex row justify-between">
+                        <a href=${this.content.href} target="_blank">${this.content.link}</a>
+                    </div>
+                ` : ""}
             </div>
         `;
     }
 
     private hasDescription(): boolean {
         return this.isProject && !!(this.content as ProjectCard).description;
+    }
+
+    private contentTemplate(): TemplateResult {
+        if (!this.content.text) return html``;
+
+        if (this.content.isList) return staticHtml`<ul>${
+            this.content.text.split("\n").map(v => staticHtml`<li>${unsafeStatic(v)}</li>`)
+        }</ul>`;
+
+        return staticHtml`<p>${unsafeStatic(this.content.text)}</p>`;
     }
 
     static get styles(): CSSResultGroup {

@@ -41,7 +41,7 @@ h4 {
   line-height: 24px;
 }
 
-p {
+p, li {
   font-family: Bitter, serif;
   font-style: normal;
   font-weight: 400;
@@ -55,6 +55,30 @@ p {
 
   &.italic {
     font-style: italic;
+  }
+}
+
+li {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-left: 12px;
+
+  &:before {
+    display: block;
+    content: "";
+    width: 4px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+
+    position: absolute;
+    top: 10px;
+    left: -12px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 6px;
   }
 }
 

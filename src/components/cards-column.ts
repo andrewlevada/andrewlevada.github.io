@@ -19,7 +19,7 @@ export class CardsColumn extends LitElement {
             <div class="flex col full-width wrapper-${this.header}">
                 <div class="header flex pad-24"><h4>${this.header}</h4></div>
                 <div class="flex col full-width cards">
-                    ${this.cards.map(card => (card.link
+                    ${this.cards.map(card => (card.link || card.text
                             ? html`<general-card .content=${card} .isProject=${this.header === "Projects"}></general-card>`
                             : html`<badge-card .content=${card}></badge-card>`))}
                 </div>
