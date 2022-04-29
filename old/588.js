@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkultimate_cv=self.webpackChunkultimate_cv||[]).push([[588],{588:(e,s,t)=>{e.exports=t.p+"2a56c6dff2e750346260.svg"}}]);
