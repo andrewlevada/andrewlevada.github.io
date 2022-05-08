@@ -3,15 +3,17 @@ import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
 import scopedStyles from "./styles.module.scss";
 import printIcon from "../../assets/icons/print.svg";
+import { localized, msg } from "@lit/localize";
 
 export default (): void => defineComponent("print-button", PrintButton);
 // noinspection HtmlUnknownTarget
+@localized()
 export class PrintButton extends LitElement {
     render(): TemplateResult {
         return html`
             <a class="flex row gap align-center" href="/print.pdf">
-                <img src="${printIcon}" alt="null">
-                <p>Get PDF</p>
+                <img src="${printIcon}" alt="">
+                <p>${msg("Get PDF")}</p>
             </a>
         `;
     }

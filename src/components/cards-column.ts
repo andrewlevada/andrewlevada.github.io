@@ -5,11 +5,13 @@ import { property, state } from "lit/decorators.js";
 import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
 import { Card, ContentSections, getCardsFor } from "~src/content-service";
+import { localized, msg } from "@lit/localize";
 
 import("~components/general-card").then(f => f.default());
 import("~components/badge-card").then(f => f.default());
 
 export default (): void => defineComponent("cards-column", CardsColumn);
+@localized()
 export class CardsColumn extends LitElement {
     @property() header!: string;
     @state() cards: Card[] = [];
@@ -20,7 +22,7 @@ export class CardsColumn extends LitElement {
                 <div class="header flex pad-24"><h4>${this.header}</h4></div>
                 <div class="flex col full-width cards">
                     ${this.cards.map(card => (card.link || card.text
-                            ? html`<general-card .content=${card} .isProject=${this.header === "Projects"}></general-card>`
+                            ? html`<general-card .content=${card} .isProject=${this.header === msg("Projects")}></general-card>`
                             : html`<badge-card .content=${card}></badge-card>`))}
                 </div>
             </div>

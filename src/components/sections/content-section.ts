@@ -1,10 +1,12 @@
 import { html, LitElement, TemplateResult, CSSResultGroup, css } from "lit";
 import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
+import { localized, msg } from "@lit/localize";
 
 import("~components/cards-column").then(f => f.default());
 
 export default (): void => defineComponent("content-section", ContentSection);
+@localized()
 export class ContentSection extends LitElement {
     render(): TemplateResult {
         return html`
@@ -19,8 +21,8 @@ export class ContentSection extends LitElement {
     }
 
     private static getColumnsNames(): string[] {
-        const columns = ["Jobs", "Projects"];
-        if (window.innerWidth >= 1440) columns.push("Education");
+        const columns = [msg("Jobs"), msg("Projects")];
+        if (window.innerWidth >= 1440) columns.push(msg("Education"));
         return columns;
     }
 

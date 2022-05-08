@@ -4,6 +4,7 @@ import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
 import { property, query } from "lit/decorators.js";
 import textColorImage from "~src/assets/text_color.png";
+import { localized, msg } from "@lit/localize";
 
 import("~components/print-button").then(f => f.default());
 
@@ -13,6 +14,7 @@ export interface HeaderContent {
 }
 
 export default (): void => defineComponent("header-section", HeaderSection);
+@localized()
 export class HeaderSection extends LitElement {
     @property({ type: Object }) content: HeaderContent | null = null;
 
@@ -22,7 +24,7 @@ export class HeaderSection extends LitElement {
         return html`
             <div class="flex col full-width gap s-40">
                 <div class="top-bar flex row justify-between full-width">
-                    <h3>Hello! I am Andrew 🖐️ </h3>
+                    <h3>${msg("Hello! I am Andrew 🖐️ ")}</h3>
                     <print-button></print-button>
                 </div>
 
@@ -32,9 +34,9 @@ export class HeaderSection extends LitElement {
                     <div class="divider desktop-only"></div>
                     
                     <div class="status-block flex col gap s-12 desktop-only">
-                        <h2>What am I up to?</h2>
+                        <h2>${msg("What am I up to?")}</h2>
                         <p class="italic">${staticHtml`${unsafeStatic(this.content?.statusText || "")}`}</p>
-                        <p class="subtitle">However, I am always open to new <br>and interesting opportunities.</p>
+                        <p class="subtitle">${msg(html`However, I am always open to new <br>and interesting opportunities.`)}</p>
                     </div>
                 </div>
             </div>

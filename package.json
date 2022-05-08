@@ -1,6 +1,6 @@
 {
   "name": "ultimate-cv",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "build": "webpack --config webpack.prod.js",
@@ -14,9 +14,11 @@
   ],
   "dependencies": {
     "@andrewlevada/public-google-sheets-parser": "^1.2.10",
+    "@lit/localize": "^0.11.2",
     "lit": "^2.2.3"
   },
   "devDependencies": {
+    "@lit/localize-tools": "^0.6.3",
     "@types/css-minimizer-webpack-plugin": "^3.2.0",
     "@types/node": "^17.0.30",
     "@types/terser-webpack-plugin": "^5.2.0",
