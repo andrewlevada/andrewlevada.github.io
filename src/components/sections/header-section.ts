@@ -7,6 +7,7 @@ import textColorImage from "~src/assets/text_color.png";
 import { localized, msg } from "@lit/localize";
 
 import("~components/print-button").then(f => f.default());
+import("~components/locale-picker").then(f => f.default());
 
 export interface HeaderContent {
     titleText: string;
@@ -25,7 +26,11 @@ export class HeaderSection extends LitElement {
             <div class="flex col full-width gap s-40">
                 <div class="top-bar flex row justify-between full-width">
                     <h3>${msg("Hello! I am Andrew 🖐️ ")}</h3>
-                    <print-button></print-button>
+                    
+                    <div class="flex row gap align-center">
+                        <locale-picker></locale-picker>
+                        <print-button></print-button>
+                    </div>
                 </div>
 
                 <div class="middle flex row justify-between full-width ${this.content ? "animate-open" : "hi"}">

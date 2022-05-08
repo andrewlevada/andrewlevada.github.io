@@ -18,7 +18,7 @@
 .flex {
   position: relative;
 
-  & > * {
+  & > *:not(locale-picker) {
     position: absolute;
     max-width: 1440px;
     margin-left: 64px;
