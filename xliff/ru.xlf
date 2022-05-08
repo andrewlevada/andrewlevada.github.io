@@ -8,7 +8,7 @@
 </trans-unit>
 <trans-unit id="s3c676ee823ef0205">
   <source>Get PDF</source>
-  <target>В формате PDF</target>
+  <target>Резюме в PDF</target>
 </trans-unit>
 <trans-unit id="s72c8f4d5bdabc437">
   <source>Contact me here</source>
@@ -32,7 +32,7 @@
 </trans-unit>
 <trans-unit id="h04f1ad31b399e76a">
   <source>However, I am always open to new <x id="0" equiv-text="&lt;br>"/>and interesting opportunities.</source>
-  <target>Я всегда открыт к новым интересным возможностям.</target>
+  <target>Я всегда открыт к новым интересным возможностям. <x id="0" equiv-text="&lt;br>"/></target>
 </trans-unit>
 <trans-unit id="s205874dd3d23b5ac">
   <source>Full web version of this CV can be viewed on desktop</source>

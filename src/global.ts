@@ -2,6 +2,7 @@ import globalStyles from "~styles/global.scss";
 import globalPageStyles from "~src/pages/global-styles.scss";
 import layoutHelperStyles from "~src/assets/styles/tiny-layout-helper.scss";
 import { css } from "lit";
+import { configureLocalization } from "@lit/localize";
 
 export const componentStyles = [globalStyles, layoutHelperStyles, css`
   :root, :host {
@@ -13,3 +14,9 @@ export const componentStyles = [globalStyles, layoutHelperStyles, css`
     --launch-anim-length: 600ms;
   }`];
 export const pageStyles = [globalStyles, globalPageStyles, layoutHelperStyles];
+
+export const { getLocale, setLocale } = configureLocalization({
+    sourceLocale: "en",
+    targetLocales: ["ru"],
+    loadLocale: (locale) => import(`~src/generated/locales/ru`),
+});

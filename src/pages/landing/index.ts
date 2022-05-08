@@ -1,6 +1,6 @@
 import { html, LitElement, TemplateResult } from "lit";
 import { customElement, state } from "lit/decorators.js";
-import { pageStyles } from "~src/global";
+import { pageStyles, setLocale } from "~src/global";
 import { getTextFor, RemoteTextLabel } from "~src/content-service";
 import { HeaderContent } from "~components/sections/header-section";
 import scopedStyles from "./styles.module.scss";
@@ -19,6 +19,7 @@ export default class TestPage extends LitElement {
             <mobile-section></mobile-section>
         ` : html`
             <div class="flex col gap pad-64 full-width">
+                <button @click=${() => { setLocale("ru"); console.log("HEI"); }} style="z-index: 100">Locale Test</button>
                 <header-section .content=${this.headerContent}></header-section>
                 <contacts-section class=${this.headerContent ? "animate-open" : ""}></contacts-section>
                 <content-section class="hide-on-small ${this.headerContent ? "animate-open" : ""}"></content-section>

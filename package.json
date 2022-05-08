@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "private": true,
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
+    "build": "lit-localize build && webpack --config webpack.prod.js",
     "build:stats": "webpack --config webpack.prod.js --profile --json > stats.json",
     "start:dev": "webpack serve --hot --config webpack.dev.js"
   },
