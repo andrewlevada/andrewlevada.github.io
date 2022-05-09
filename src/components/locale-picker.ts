@@ -9,10 +9,15 @@ export class LocalePicker extends LitElement {
     render(): TemplateResult {
         return html`
             <div class="flex row gap">
-                <button id="lang-ru" @click=${() => setLocale("ru")}></button>
-                <button id="lang-en" @click=${() => setLocale("en")}></button>
+                <button id="lang-ru" @click=${() => LocalePicker.updateLocale("ru")}></button>
+                <button id="lang-en" @click=${() => LocalePicker.updateLocale("en")}></button>
             </div>
         `;
+    }
+
+    private static updateLocale(to: string): void {
+        setLocale(to);
+        window.history.replaceState({}, document.title, `${window.location.origin}${window.location.pathname}?lang=${to}`);
     }
 
     static styles = [...componentStyles, css`

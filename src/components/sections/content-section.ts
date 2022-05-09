@@ -13,16 +13,16 @@ export class ContentSection extends LitElement {
             <div class="flex col full-width border">
                 <div class="flex row full-width wrapper">
                     ${ContentSection.getColumnsNames().map((v, i) => html`
-                        <cards-column class=${`col-${i + 1}`} header=${v}></cards-column>
+                        <cards-column class=${`col-${i + 1}`} .header=${v.name} .id=${v.id}></cards-column>
                     `)}
                 </div>
             </div>
         `;
     }
 
-    private static getColumnsNames(): string[] {
-        const columns = [msg("Jobs"), msg("Projects")];
-        if (window.innerWidth >= 1440) columns.push(msg("Education"));
+    private static getColumnsNames(): { name: string, id: string }[] {
+        const columns = [{ name: msg("Jobs"), id: "jobs" }, { name: msg("Projects"), id: "projects" }];
+        if (window.innerWidth >= 1440) columns.push({ name: msg("Education"), id: "education" });
         return columns;
     }
 

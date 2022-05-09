@@ -18,5 +18,8 @@ export const pageStyles = [globalStyles, globalPageStyles, layoutHelperStyles];
 export const { getLocale, setLocale } = configureLocalization({
     sourceLocale: "en",
     targetLocales: ["ru"],
-    loadLocale: (locale) => import(`~src/generated/locales/ru`),
+    loadLocale: () => import(`~src/generated/locales/ru`),
 });
+
+if (window.location.search.includes("lang=ru"))
+    setTimeout(() => setLocale("ru"), 0);
