@@ -68,6 +68,9 @@ export class HeaderSection extends LitElement {
             background-clip: text;
             -webkit-background-clip: text;
             color: rgba(0, 0, 0, 0.01);
+            background-size: cover;
+            padding-right: 10px;
+            height: fit-content;
           }
 
           .status-block {

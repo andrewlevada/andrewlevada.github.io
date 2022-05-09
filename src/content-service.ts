@@ -1,4 +1,5 @@
 import PublicGoogleSheetsParser from "@andrewlevada/public-google-sheets-parser/dist";
+import { getLocale } from "~src/global";
 
 const spreadsheetId = "1aj7yB3noTP8Y2pmHC4OuIj1Z-nY-0EoSAnNbMIF4kPo";
 const parser = new PublicGoogleSheetsParser();
@@ -25,7 +26,7 @@ export type RemoteTextLabel = "title" | "status";
 export function getTextFor(labels: RemoteTextLabel[]): Promise<{ label: RemoteTextLabel, text: string }[]> {
     return parser.parse(spreadsheetId, "General")
         .then(data => data.filter(v => labels.includes(v.Label.toLowerCase() as RemoteTextLabel))
-            .map(v => ({ label: v.Label.toLowerCase() as RemoteTextLabel, text: v.Text })));
+            .map(v => ({ label: v.Label.toLowerCase() as RemoteTextLabel, text: v[`Text [${getLocale().toUpperCase()}]`] })));
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

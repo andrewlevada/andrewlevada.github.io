@@ -28,6 +28,13 @@ export default class TestPage extends LitElement {
 
     connectedCallback() {
         super.connectedCallback();
+        this.updateContent();
+        window.addEventListener("lit-localize-status", (event) => {
+            if (event.detail.status === "ready") this.updateContent();
+        });
+    }
+
+    private updateContent() {
         getTextFor(["title", "status"])
             // eslint-disable-next-line max-len
             .then(texts => new Promise<{label: RemoteTextLabel, text: string}[]>(resolve => { setTimeout(() => resolve(texts), 300); }))
