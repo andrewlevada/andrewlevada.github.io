@@ -3,7 +3,7 @@ import { css, html, LitElement, TemplateResult } from "lit";
 import { CSSResultGroup } from "lit";
 import { property, state } from "lit/decorators.js";
 import { componentStyles } from "~src/global";
-import { defineComponent } from "~utils/components";
+import { defineComponent, onLocaleChanged } from "~utils/components";
 import { Card, ContentSections, getCardsFor } from "~src/content-service";
 import { localized } from "@lit/localize";
 
@@ -32,6 +32,11 @@ export class CardsColumn extends LitElement {
 
     connectedCallback() {
         super.connectedCallback();
+        this.updateContent();
+        onLocaleChanged(() => this.updateContent());
+    }
+
+    private updateContent() {
         getCardsFor(this.id as ContentSections).then(v => {
             this.cards = v;
         });

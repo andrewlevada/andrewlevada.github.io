@@ -32,7 +32,7 @@
 </trans-unit>
 <trans-unit id="h04f1ad31b399e76a">
   <source>However, I am always open to new <x id="0" equiv-text="&lt;br>"/>and interesting opportunities.</source>
-  <target>Однако я всегда открыт к новым интересным возможностям. <x id="0" equiv-text="&lt;br>"/></target>
+  <target>Однако я всегда открыт к новым <x id="0" equiv-text="&lt;br>"/>интересным возможностям.</target>
 </trans-unit>
 <trans-unit id="s205874dd3d23b5ac">
   <source>Full web version of this CV can be viewed on desktop</source>

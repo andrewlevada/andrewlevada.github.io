@@ -4,6 +4,7 @@ import { pageStyles } from "~src/global";
 import { getTextFor, RemoteTextLabel } from "~src/content-service";
 import { HeaderContent } from "~components/sections/header-section";
 import scopedStyles from "./styles.module.scss";
+import { onLocaleChanged } from "~utils/components";
 
 import("~components/sections/header-section").then(f => f.default());
 import("~components/sections/contacts-section").then(f => f.default());
@@ -29,9 +30,7 @@ export default class TestPage extends LitElement {
     connectedCallback() {
         super.connectedCallback();
         this.updateContent();
-        window.addEventListener("lit-localize-status", (event) => {
-            if (event.detail.status === "ready") this.updateContent();
-        });
+        onLocaleChanged(() => this.updateContent());
     }
 
     private updateContent() {

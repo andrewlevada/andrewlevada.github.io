@@ -26,19 +26,23 @@ export type RemoteTextLabel = "title" | "status";
 export function getTextFor(labels: RemoteTextLabel[]): Promise<{ label: RemoteTextLabel, text: string }[]> {
     return parser.parse(spreadsheetId, "General")
         .then(data => data.filter(v => labels.includes(v.Label.toLowerCase() as RemoteTextLabel))
-            .map(v => ({ label: v.Label.toLowerCase() as RemoteTextLabel, text: v[`Text [${getLocale().toUpperCase()}]`] })));
+            .map(v => ({ label: v.Label.toLowerCase() as RemoteTextLabel, text: v[localize("Text")] })));
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function getCardsFor(section: ContentSections): Promise<Card[]> {
     return parser.parse(spreadsheetId, capitalize(section)).then(data => data.map(v => ({
-        title: v.Title,
-        text: v.Text,
-        link: v.Link,
+        title: v[localize("Title")] || v.Title,
+        text: v[localize("Text")] || v.Text,
+        link: v[localize("Link")] || v.Link,
         href: v["Link URL"],
         isList: v["Is List"] === "Yes",
-        description: v.Description,
+        description: v[localize("Description")] || v.Description,
     }) as Card));
+}
+
+function localize(s: string): string {
+    return `${s} [${getLocale().toUpperCase()}]`;
 }
 
 function capitalize(s: string): string {
