@@ -1,6 +1,6 @@
-import globalStyles from "~styles/global.scss";
-import globalPageStyles from "~src/pages/global-styles.scss";
-import layoutHelperStyles from "~src/assets/styles/tiny-layout-helper.scss";
+import globalStyles from "~styles/global.lit.scss";
+import globalPageStyles from "~src/pages/global-styles.lit.scss";
+import layoutHelperStyles from "~styles/tiny-layout-helper.lit.scss";
 import { css } from "lit";
 import { configureLocalization } from "@lit/localize";
 

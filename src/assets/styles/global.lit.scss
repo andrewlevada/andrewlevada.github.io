@@ -1,5 +1,5 @@
-@use "./theming.css";
-@use "./reset.css";
+@use "theming.lit";
+@use "reset.lit";
 
 :host {
   box-sizing: border-box;
