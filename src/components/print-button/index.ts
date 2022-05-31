@@ -1,4 +1,4 @@
-import { html, LitElement, TemplateResult, CSSResultGroup } from "lit";
+import { html, LitElement, TemplateResult, unsafeCSS } from "lit";
 import { componentStyles, getLocale } from "~src/global";
 import { defineComponent } from "~utils/components";
 import scopedStyles from "./styles.module.scss";
@@ -17,7 +17,5 @@ export class PrintButton extends LitElement {
         `;
     }
 
-    static get styles(): CSSResultGroup {
-        return [...componentStyles, scopedStyles as never];
-    }
+    static styles = [...componentStyles, unsafeCSS(scopedStyles)];
 }

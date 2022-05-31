@@ -1,22 +1,26 @@
-import { defineConfig } from 'vite'
-import litCss from "rollup-plugin-lit-css";
+import { defineConfig } from "vite"
 
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
     rollupOptions: {
       plugins: [
-          litCss()
+        // litScss()
+          // litCss({
+          //   include: ["/**/*.scss", "/**/*.css"],
+          //   transform: (data, { filePath }) => compileString(data).css
+          // })
       ]
     }
   },
   resolve: {
     alias: {
-      "~services": "./src/services",
-      "~components": "./src/components",
-      "~utils": "./src/utils",
-      "~assets": "./assets",
-      "~src": "./src"
+      "~services": "/src/services",
+      "~components": "/src/components",
+      "~utils": "/src/utils",
+      "~styles": "/src/assets/styles",
+      "~src": "/src"
     },
   }
 })
+

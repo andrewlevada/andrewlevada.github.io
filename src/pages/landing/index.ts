@@ -1,22 +1,22 @@
-import { html, LitElement, TemplateResult } from "lit";
-import { customElement, state } from "lit/decorators.js";
+import { html, LitElement, TemplateResult, unsafeCSS } from "lit";
+import { state } from "lit/decorators.js";
 import { pageStyles } from "~src/global";
 import { getTextFor, RemoteTextLabel } from "~src/content-service";
 import { HeaderContent } from "~components/sections/header-section";
-import scopedStyles from "./styles.module.scss";
-import { onLocaleChanged } from "~utils/components";
+import scopedStyles from "./styles.scss";
+import { defineComponent, onLocaleChanged } from "~utils/components";
 
 import("~components/sections/header-section").then(f => f.default());
 import("~components/sections/contacts-section").then(f => f.default());
 import("~components/sections/content-section").then(f => f.default());
 import("~components/sections/mobile-section").then(f => f.default());
 
-@customElement("landing-page")
-export default class TestPage extends LitElement {
+export default (): void => defineComponent("app-page--landing", CVPage);
+export class CVPage extends LitElement {
     @state() headerContent: HeaderContent | null = null;
 
     render(): TemplateResult {
-        return TestPage.isSmallScreen() ? html`
+        return CVPage.isSmallScreen() ? html`
             <mobile-section></mobile-section>
         ` : html`
             <div class="flex col gap pad-64 full-width">
@@ -48,7 +48,5 @@ export default class TestPage extends LitElement {
         return window.innerWidth < 1024;
     }
 
-    static get styles(): CSSStyleSheet[] {
-        return [...pageStyles, scopedStyles as never];
-    }
+    static styles = [...pageStyles, unsafeCSS(scopedStyles)];
 }

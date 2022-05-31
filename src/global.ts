@@ -1,10 +1,10 @@
 import globalStyles from "~styles/global.lit.scss";
 import globalPageStyles from "~src/pages/global-styles.lit.scss";
 import layoutHelperStyles from "~styles/tiny-layout-helper.lit.scss";
-import { css } from "lit";
+import { css, unsafeCSS } from "lit";
 import { configureLocalization } from "@lit/localize";
 
-export const componentStyles = [globalStyles, layoutHelperStyles, css`
+export const componentStyles = [unsafeCSS(globalStyles), unsafeCSS(layoutHelperStyles), css`
   :root, :host {
     --primary-color: #495F81;
     --dark-primary-color: #E04C78;
@@ -13,7 +13,7 @@ export const componentStyles = [globalStyles, layoutHelperStyles, css`
     --launch-anim-delay: 480ms;
     --launch-anim-length: 600ms;
   }`];
-export const pageStyles = [globalStyles, globalPageStyles, layoutHelperStyles];
+export const pageStyles = [unsafeCSS(globalStyles), unsafeCSS(layoutHelperStyles), unsafeCSS(globalPageStyles)];
 
 export const { getLocale, setLocale } = configureLocalization({
     sourceLocale: "en",
