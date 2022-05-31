@@ -1,7 +1,7 @@
 import { html, LitElement, TemplateResult, unsafeCSS } from "lit";
 import { componentStyles, getLocale } from "~src/global";
 import { defineComponent } from "~utils/components";
-import scopedStyles from "./styles.module.scss";
+import scopedStyles from "./styles.scss";
 import printIcon from "../../assets/icons/print.svg";
 import { localized, msg } from "@lit/localize";
 
