@@ -10,7 +10,7 @@ export default (): void => defineComponent("print-button", PrintButton);
 export class PrintButton extends LitElement {
     render(): TemplateResult {
         return html`
-            <a class="flex row gap align-center" href=${`/print_${getLocale()}.pdf`}>
+            <a class="flex row gap align-center" href=${`/static/print_${getLocale()}.pdf`} target="_blank" download=${msg("CV Andrew Levada")}>
                 <img src="${printIcon}" alt="">
                 <p>${msg("Get PDF")}</p>
             </a>
