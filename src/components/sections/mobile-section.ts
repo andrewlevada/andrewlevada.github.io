@@ -9,8 +9,8 @@ import("~components/locale-picker").then(f => f.default());
 export default (): void => defineComponent("mobile-section", MobileSection);
 @localized()
 export class MobileSection extends LitElement {
-    render(): TemplateResult {
-        return html`
+	render(): TemplateResult {
+		return html`
             <div class="flex col full-width full-height gap align-center justify-center s-40">
                 <h3>${msg("Hello! I am Andrew 🖐️ ")}</h3>
                 
@@ -21,10 +21,10 @@ export class MobileSection extends LitElement {
                 <p>${msg("Full web version of this CV can be viewed on desktop")}</p>
             </div>
         `;
-    }
+	}
 
-    static get styles(): CSSResultGroup {
-        return [...componentStyles, css`
+	static get styles(): CSSResultGroup {
+		return [...componentStyles, css`
           div {
             padding: 16px;
           }
@@ -33,5 +33,5 @@ export class MobileSection extends LitElement {
             text-align: center;
           }
         `];
-    }
+	}
 }

@@ -7,8 +7,8 @@ import { localized, msg } from "@lit/localize";
 export default (): void => defineComponent("contacts-section", ContactsSection);
 @localized()
 export class ContactsSection extends LitElement {
-    render(): TemplateResult {
-        return html`
+	render(): TemplateResult {
+		return html`
             <div class="wrapper flex row justify-between align-center full-width border">
                 <h4 class="hide-on-small">${msg("Contact me here")}</h4>
                 <div class="contacts flex row gap justify-end">
@@ -19,10 +19,10 @@ export class ContactsSection extends LitElement {
                 </div>
             </div>
         `;
-    }
+	}
 
-    static get styles(): CSSResultGroup {
-        return [...componentStyles, css`
+	static get styles(): CSSResultGroup {
+		return [...componentStyles, css`
           .wrapper {
             height: 62px;
             padding-left: 24px;
@@ -45,12 +45,12 @@ export class ContactsSection extends LitElement {
             }
           }
         `];
-    }
+	}
 }
 
 const contactsMap: Record<string, string> = {
-    telegram: "https://t.me/andrewlevada",
-    github: "https://github.com/andrewlevada",
-    linkedin: "https://www.linkedin.com/in/andrewlevada",
-    email: "mailto:levada.andrew@gmail.com",
+	telegram: "https://t.me/andrewlevada",
+	github: "https://github.com/andrewlevada",
+	linkedin: "https://www.linkedin.com/in/andrewlevada",
+	email: "mailto:levada.andrew@gmail.com",
 };

@@ -13,10 +13,10 @@ import("~components/sections/mobile-section").then(f => f.default());
 
 export default (): void => defineComponent("app-page--landing", CVPage);
 export class CVPage extends LitElement {
-    @state() headerContent: HeaderContent | null = null;
+	@state() headerContent: HeaderContent | null = null;
 
-    render(): TemplateResult {
-        return CVPage.isSmallScreen() ? html`
+	render(): TemplateResult {
+		return CVPage.isSmallScreen() ? html`
             <mobile-section></mobile-section>
         ` : html`
             <div class="flex col gap pad-64 full-width">
@@ -25,28 +25,30 @@ export class CVPage extends LitElement {
                 <content-section class="hide-on-small ${this.headerContent ? "animate-open" : ""}"></content-section>
             </div>
         `;
-    }
+	}
 
-    connectedCallback() {
-        super.connectedCallback();
-        this.updateContent();
-        onLocaleChanged(() => this.updateContent());
-    }
+	connectedCallback() {
+		super.connectedCallback();
+		this.updateContent();
+		onLocaleChanged(() => this.updateContent());
+	}
 
-    private updateContent() {
-        getTextFor(["title", "status"])
-            // eslint-disable-next-line max-len
-            .then(texts => new Promise<{label: RemoteTextLabel, text: string}[]>(resolve => { setTimeout(() => resolve(texts), 300); }))
-            .then(texts => {
-                this.headerContent = {} as HeaderContent;
-                // eslint-disable-next-line no-restricted-syntax
-                for (const v of texts) this.headerContent[`${v.label}Text`] = v.text;
-            });
-    }
+	private updateContent() {
+		getTextFor(["title", "status"])
+			// eslint-disable-next-line max-len
+			.then(texts => new Promise<{ label: RemoteTextLabel, text: string }[]>(resolve => {
+				setTimeout(() => resolve(texts), 300);
+			}))
+			.then(texts => {
+				this.headerContent = {} as HeaderContent;
+				// eslint-disable-next-line no-restricted-syntax
+				for (const v of texts) this.headerContent[`${v.label}Text`] = v.text;
+			});
+	}
 
-    private static isSmallScreen(): boolean {
-        return window.innerWidth < 1024;
-    }
+	private static isSmallScreen(): boolean {
+		return window.innerWidth < 1024;
+	}
 
-    static styles = [...pageStyles, unsafeCSS(scopedStyles)];
+	static styles = [...pageStyles, unsafeCSS(scopedStyles)];
 }

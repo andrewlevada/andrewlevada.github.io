@@ -6,30 +6,30 @@ import { complexRoutes, simpleRoutes } from "~src/pages/routes-config";
 
 export default (): void => defineComponent("app-router", AppRouter);
 export class AppRouter extends LitElement {
-    private router = new Router(this, [
-        ...generateRoutes(simpleRoutes),
-        ...complexRoutes
-    ]);
+	private router = new Router(this, [
+		...generateRoutes(simpleRoutes),
+		...complexRoutes
+	]);
 
-    render(): TemplateResult {
-        return html`${this.router.outlet()}`;
-    }
+	render(): TemplateResult {
+		return html`${this.router.outlet()}`;
+	}
 }
 
 export interface DefaultRoute {
-    path: string;
-    tag: string;
+	path: string;
+	tag: string;
 }
 
 function generateRoutes(defaultRoutes: DefaultRoute[]): RouteConfig[] {
-    return defaultRoutes.map(v => ({
-        path: v.path,
-        render: () => staticHtml`${unsafeStatic(pageElementHtml(v.tag))}`,
-        enter: () => import(`./${v.tag}/index.ts`).then(f => f.default()),
-    }));
+	return defaultRoutes.map(v => ({
+		path: v.path,
+		render: () => staticHtml`${unsafeStatic(pageElementHtml(v.tag))}`,
+		enter: () => import(`./${v.tag}/index.ts`).then(f => f.default()),
+	}));
 }
 
 function pageElementHtml(tag: string): string {
-    const fullTag = `app-page--${tag}`;
-    return `<${fullTag}></${fullTag}>`
+	const fullTag = `app-page--${tag}`;
+	return `<${fullTag}></${fullTag}>`
 }

@@ -8,14 +8,14 @@ import { localized, msg } from "@lit/localize";
 export default (): void => defineComponent("print-button", PrintButton);
 @localized()
 export class PrintButton extends LitElement {
-    render(): TemplateResult {
-        return html`
+	render(): TemplateResult {
+		return html`
             <a class="flex row gap align-center" href=${`/static/print_${getLocale()}.pdf`} target="_blank" download=${msg("CV Andrew Levada")}>
                 <img src="${printIcon}" alt="">
                 <p>${msg("Get PDF")}</p>
             </a>
         `;
-    }
+	}
 
-    static styles = [...componentStyles, unsafeCSS(scopedStyles)];
+	static styles = [...componentStyles, unsafeCSS(scopedStyles)];
 }

@@ -10,19 +10,19 @@ import("~components/print-button").then(f => f.default());
 import("~components/locale-picker").then(f => f.default());
 
 export interface HeaderContent {
-    titleText: string;
-    statusText: string;
+	titleText: string;
+	statusText: string;
 }
 
 export default (): void => defineComponent("header-section", HeaderSection);
 @localized()
 export class HeaderSection extends LitElement {
-    @property({ type: Object }) content: HeaderContent | null = null;
+	@property({ type: Object }) content: HeaderContent | null = null;
 
-    @query(".color-text img") imageColorText!: HTMLImageElement;
+	@query(".color-text img") imageColorText!: HTMLImageElement;
 
-    render(): TemplateResult {
-        return html`
+	render(): TemplateResult {
+		return html`
             <div class="flex col full-width gap s-40">
                 <div class="top-bar flex row justify-between full-width">
                     <h3>${msg("Hello! I am Andrew 🖐️ ")}</h3>
@@ -46,10 +46,10 @@ export class HeaderSection extends LitElement {
                 </div>
             </div>
         `;
-    }
+	}
 
-    static get styles(): CSSResultGroup {
-        return [...componentStyles, css`
+	static get styles(): CSSResultGroup {
+		return [...componentStyles, css`
           .middle {
             position: absolute;
             top: 26%;
@@ -100,5 +100,5 @@ export class HeaderSection extends LitElement {
             }
           }
         `];
-    }
+	}
 }
