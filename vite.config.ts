@@ -10,6 +10,9 @@ export default defineConfig({
       "~styles": "/src/assets/styles",
       "~src": "/src"
     },
+  },
+  build: {
+    outDir: "build"
   }
 })
 

@@ -1,7 +1,7 @@
 npm run build
 
 rm -rf ../build-dist
-cp -R ./dist/. ../build-dist/
+cp -R ./build/. ../build-dist/
 
 git checkout dist
 rm -rf ./assets

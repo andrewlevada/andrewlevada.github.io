@@ -49,7 +49,5 @@ $RECYCLE.BIN/
 node_modules/
 
 .idea
-
-# Webpack
 dist/
-stats.json
+build/
