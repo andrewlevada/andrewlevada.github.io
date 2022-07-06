@@ -1,4 +1,4 @@
-import{L as o}from"./index.fe516b9a.js";/**
+import{L as o}from"./global.25b3698c.js";/**
  * @license
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
