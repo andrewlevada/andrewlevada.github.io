@@ -14,7 +14,7 @@
     "lit": "^2.2.7"
   },
   "devDependencies": {
-    "@lit/localize-tools": "^0.6.4",
+    "@lit/localize-tools": "^0.6.5",
     "@rollup/pluginutils": "^4.2.1",
     "@types/node": "^18.0.3",
     "cross-env": "^7.0.3",
