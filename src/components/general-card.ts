@@ -4,6 +4,7 @@ import { property } from "lit/decorators.js";
 import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
 import { Card, ProjectCard } from "~src/content-service";
+import { renderSuper } from "~components/super-cards/super-factory";
 
 export default (): void => defineComponent("general-card", GeneralCard);
 export class GeneralCard extends LitElement {
@@ -12,19 +13,23 @@ export class GeneralCard extends LitElement {
 
 	render(): TemplateResult {
 		return html`
-            <div class="flex col gap pad-24 full-width">
-                <h4>${this.content.title}</h4>
-                ${this.hasDescription() ? html`<p class="subtitle">${(this.content as ProjectCard).description}</p>` : ""}
+			<div class="flex col gap pad-24 full-width">
+				${this.isSuper() ? html`
+					${renderSuper(this.content.title, this.content)}
+				` : html`
+					<h4>${this.content.title}</h4>
+					${this.hasDescription() ? html`<p class="subtitle">${(this.content as ProjectCard).description}</p>` : ""}
 
-                ${this.contentTemplate()}
+					${this.contentTemplate()}
 
-                ${this.content.link ? html`
-                    <div class="flex row justify-between">
-                        <a href=${this.content.href} target="_blank">${this.content.link}</a>
-                    </div>
-                ` : ""}
-            </div>
-        `;
+					${this.content.link ? html`
+						<div class="flex row justify-between">
+							<a href=${this.content.href} target="_blank">${this.content.link}</a>
+						</div>
+					` : ""}
+				`}
+			</div>
+		`;
 	}
 
 	private hasDescription(): boolean {
@@ -39,6 +44,10 @@ export class GeneralCard extends LitElement {
 		}</ul>`;
 
 		return staticHtml`<p>${unsafeStatic(this.content.text)}</p>`;
+	}
+
+	private isSuper(): boolean {
+		return this.content.title.startsWith("_super_");
 	}
 
 	static get styles(): CSSResultGroup {

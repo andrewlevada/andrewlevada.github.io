@@ -36,6 +36,7 @@ export class HeaderSection extends LitElement {
                 <div class="middle flex row justify-between full-width ${this.content ? "animate-open" : "hi"}">
                     <h1 class="colored-text">${staticHtml`${unsafeStatic(this.content?.titleText || "")}`}</h1>
                     
+	                <!--
                     <div class="divider desktop-only"></div>
                     
                     <div class="status-block flex col gap s-12 desktop-only">
@@ -43,6 +44,7 @@ export class HeaderSection extends LitElement {
                         <p class="italic">${staticHtml`${unsafeStatic(this.content?.statusText || "")}`}</p>
                         <p class="subtitle">${msg(html`However, I am always open to new <br>and interesting opportunities.`)}</p>
                     </div>
+                    -->
                 </div>
             </div>
         `;
