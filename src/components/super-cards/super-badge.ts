@@ -55,8 +55,8 @@ export class SuperBadge extends LitElement {
 				content: " ";
 				display: block;
 				position: absolute;
-				height: 240px;
-				width: 240px;
+				width: 120%;
+				aspect-ratio: 1 / 1;
 				
 				animation: spin 1s infinite linear;
 				background: linear-gradient(#E24E72, #9255E1);
@@ -80,6 +80,7 @@ export class SuperBadge extends LitElement {
 			}
 			
 			h4 {
+				width: max-content;
 				font-weight: 500;
 			}
 			

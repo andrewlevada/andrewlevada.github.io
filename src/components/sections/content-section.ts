@@ -22,7 +22,7 @@ export class ContentSection extends LitElement {
 
 	private static getColumnsNames(): { name: string, id: string }[] {
 		const columns = [{ name: msg("Jobs"), id: "jobs" }, { name: msg("Projects"), id: "projects" }];
-		if (window.innerWidth >= 1440) columns.push({ name: msg("Education"), id: "education" });
+		columns.push({ name: msg("Education"), id: "education" });
 		return columns;
 	}
 
@@ -38,8 +38,9 @@ export class ContentSection extends LitElement {
 			}
 
 			@media screen and (max-width: 1439px) {
-				.col-1 { flex-basis: 46%; }
-				.col-2 { flex-basis: 54%; }
+				.col-1 { flex-basis: 35%; }
+				.col-2 { flex-basis: 35%; }
+				.col-3 { flex-basis: 30%; }
 			}
 		`];
 	}
