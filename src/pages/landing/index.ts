@@ -16,13 +16,11 @@ export class CVPage extends LitElement {
 	@state() headerContent: HeaderContent | null = null;
 
 	render(): TemplateResult {
-		return CVPage.isSmallScreen() ? html`
-            <mobile-section></mobile-section>
-        ` : html`
+		return html`
             <div class="flex col gap pad-64 full-width">
                 <header-section .content=${this.headerContent}></header-section>
                 <contacts-section class=${this.headerContent ? "animate-open" : ""}></contacts-section>
-                <content-section class="hide-on-small ${this.headerContent ? "animate-open" : ""}"></content-section>
+                <content-section class="${this.headerContent ? "animate-open" : ""}"></content-section>
             </div>
         `;
 	}
@@ -44,10 +42,6 @@ export class CVPage extends LitElement {
 				// eslint-disable-next-line no-restricted-syntax
 				for (const v of texts) this.headerContent[`${v.label}Text`] = v.text;
 			});
-	}
-
-	private static isSmallScreen(): boolean {
-		return window.innerWidth < 1024;
 	}
 
 	static styles = [...pageStyles, unsafeCSS(scopedStyles)];

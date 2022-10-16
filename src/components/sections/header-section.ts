@@ -28,13 +28,18 @@ export class HeaderSection extends LitElement {
                     <h3>${msg("Hello! I am Andrew 🖐️ ")}</h3>
                     
                     <div class="flex row gap align-center">
-                        <locale-picker></locale-picker>
-                        <print-button></print-button>
+                        <locale-picker class="hide-on-small"></locale-picker>
+                        <print-button class="hide-on-small"></print-button>
                     </div>
                 </div>
 
-                <div class="middle flex row justify-between full-width ${this.content ? "animate-open" : "hi"}">
+                <div class="middle flex col gap justify-between full-width ${this.content ? "animate-open" : "hi"}">
                     <h1 class="colored-text">${staticHtml`${unsafeStatic(this.content?.titleText || "")}`}</h1>
+
+					<div class="flex row gap align-center small-only">
+						<print-button></print-button>
+						<locale-picker></locale-picker>
+					</div>
                     
 	                <!--
                     <div class="divider desktop-only"></div>

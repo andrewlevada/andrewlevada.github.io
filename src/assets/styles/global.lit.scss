@@ -15,6 +15,11 @@ h1 {
 	font-weight: 700;
 	font-size: 64px;
 	line-height: 72px;
+
+	@media screen and (max-width: 1023px) {
+		font-size: min(7vw, 64px);
+		line-height: min(9vw, 72px);
+	}
 }
 
 h2 {
@@ -31,6 +36,10 @@ h3 {
 	font-weight: 500;
 	font-size: 36px;
 	line-height: 44px;
+
+	@media screen and (max-width: 1023px) {
+		font-size: min(6vw, 36px);
+	}
 }
 
 h4 {
@@ -136,6 +145,10 @@ a {
 	border: solid 2px var(--primary-color);
 }
 
+.small-only {
+	display: none !important;
+}
+
 @media screen and (max-width: 1439px) {
 	.desktop-only {
 		display: none !important;
@@ -145,6 +158,10 @@ a {
 @media screen and (max-width: 1023px) {
 	.hide-on-small {
 		display: none !important;
+	}
+
+	.small-only {
+		display: flex !important;
 	}
 }
 

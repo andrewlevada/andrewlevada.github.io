@@ -10,7 +10,7 @@ export default (): void => defineComponent("content-section", ContentSection);
 export class ContentSection extends LitElement {
 	render(): TemplateResult {
 		return html`
-			<div class="flex col full-width border">
+			<div class="flex col full-width">
 				<div class="flex row full-width wrapper">
 					${ContentSection.getColumnsNames().map((v, i) => html`
 						<cards-column class=${`col-${i + 1}`} .header=${v.name} .id=${v.id}></cards-column>
@@ -28,13 +28,27 @@ export class ContentSection extends LitElement {
 
 	static get styles(): CSSResultGroup {
 		return [...componentStyles, css`
+			.wrapper { flex-wrap: wrap; }
 			.wrapper > * { flex-grow: 1; }
 			.col-1 { flex-basis: 36%; }
 			.col-2 { flex-basis: 42%; }
 			.col-3 { flex-basis: 22%; }
 
-			.wrapper > *:not(:last-child) {
-				border-right: solid 2px var(--primary-color);
+			@media screen and (min-width: 1024px) {
+				.wrapper { border: solid 2px var(--primary-color); }
+				.wrapper > *:not(:last-child) {
+					border-right: solid 2px var(--primary-color);
+				}
+			}
+
+			@media screen and (max-width: 1023px) {
+				.wrapper > * {
+					flex-basis: auto !important;
+				}
+
+				.wrapper > *:not(:last-child) {
+					margin-bottom: 32px;
+				}
 			}
 
 			@media screen and (max-width: 1439px) {

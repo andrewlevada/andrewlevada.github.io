@@ -18,7 +18,7 @@ export class CardsColumn extends LitElement {
 
 	render(): TemplateResult {
 		return html`
-			<div class="flex col full-width wrapper-${this.header}">
+			<div class="flex col full-width wrapper-${this.header} top">
 				<div class="header flex pad-24"><h4>${this.header}</h4></div>
 				<div class="flex col full-width cards">
 					${this.cards.map(card => (card.link || card.text ? html`
@@ -45,6 +45,16 @@ export class CardsColumn extends LitElement {
 
 	static get styles(): CSSResultGroup {
 		return [...componentStyles, css`
+			.top {
+				box-sizing: content-box;
+			}
+
+			@media screen and (max-width: 1023px) {
+				.top {
+					border: 2px var(--primary-color) solid;
+				}
+			}
+			
 			.header {
 				height: 62px;
 			}
