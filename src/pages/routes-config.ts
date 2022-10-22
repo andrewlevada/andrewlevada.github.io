@@ -5,7 +5,6 @@ import { RouteConfig } from "@lit-labs/router";
 // and showing component named 'app-page--<tag>'
 export const simpleRoutes: DefaultRoute[] = [
 	{ path: "/", tag: "landing" },
-	{ path: "/visuals", tag: "visuals" },
 ]
 
 export const complexRoutes: RouteConfig[] = []

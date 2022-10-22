@@ -74,6 +74,7 @@ a {
 	text-decoration-line: underline;
 
 	transition: color 100ms ease;
+
 	&:hover { color: var(--red-brand-color); }
 
 	&.as-header {

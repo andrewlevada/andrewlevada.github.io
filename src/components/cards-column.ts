@@ -6,7 +6,7 @@ import { defineComponent, onLocaleChanged } from "~utils/components";
 import { Card, ContentSections, getCardsFor } from "~src/content-service";
 import { localized } from "@lit/localize";
 
-import("~components/general-card").then(f => f.default());
+import("~components/activity-card").then(f => f.default());
 import("~components/badge-card").then(f => f.default());
 
 export default (): void => defineComponent("cards-column", CardsColumn);
@@ -18,11 +18,11 @@ export class CardsColumn extends LitElement {
 
 	render(): TemplateResult {
 		return html`
-			<div class="flex col full-width wrapper-${this.header} top">
+			<div class="flex col full-width top">
 				<div class="header flex pad-24"><h4>${this.header}</h4></div>
 				<div class="flex col full-width cards">
-					${this.cards.map(card => (card.link || card.text ? html`
-						<general-card .content=${card} .isProject=${this.id === "projects"}></general-card>
+					${this.cards.map(card => (card.link || card.paragraphs ? html`
+						<activity-card .content=${card} .isProject=${this.id === "projects"}></activity-card>
 					` : html`
 						<badge-card .content=${card}></badge-card>
 					`))}
@@ -51,7 +51,7 @@ export class CardsColumn extends LitElement {
 
 			@media screen and (max-width: 1023px) {
 				.top {
-					border: 2px var(--primary-color) solid;
+					border: 2px var(--dark-color) solid;
 				}
 			}
 			
@@ -64,7 +64,7 @@ export class CardsColumn extends LitElement {
 			}
 
 			.cards > * {
-				border-top: solid 2px var(--primary-color);
+				border-top: solid 2px var(--dark-color);
 			}
 		`];
 	}

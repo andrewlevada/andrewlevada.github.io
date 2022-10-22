@@ -5,14 +5,20 @@ import { localized, msg } from "@lit/localize";
 
 import("~components/cards-column").then(f => f.default());
 
-export default (): void => defineComponent("content-section", ContentSection);
+export default (): void => defineComponent("content-landing-part", ContentLandingPart);
 @localized()
-export class ContentSection extends LitElement {
+export class ContentLandingPart extends LitElement {
+	private columns = [
+		{ name: msg("Jobs"), id: "jobs" },
+		{ name: msg("Projects"), id: "projects" },
+		{ name: msg("Education"), id: "education" }
+	];
+
 	render(): TemplateResult {
 		return html`
 			<div class="flex col full-width">
 				<div class="flex row full-width wrapper">
-					${ContentSection.getColumnsNames().map((v, i) => html`
+					${this.columns.map((v, i) => html`
 						<cards-column class=${`col-${i + 1}`} .header=${v.name} .id=${v.id}></cards-column>
 					`)}
 				</div>
@@ -20,24 +26,35 @@ export class ContentSection extends LitElement {
 		`;
 	}
 
-	private static getColumnsNames(): { name: string, id: string }[] {
-		const columns = [{ name: msg("Jobs"), id: "jobs" }, { name: msg("Projects"), id: "projects" }];
-		columns.push({ name: msg("Education"), id: "education" });
-		return columns;
-	}
-
 	static get styles(): CSSResultGroup {
 		return [...componentStyles, css`
-			.wrapper { flex-wrap: wrap; }
-			.wrapper > * { flex-grow: 1; }
-			.col-1 { flex-basis: 36%; }
-			.col-2 { flex-basis: 42%; }
-			.col-3 { flex-basis: 22%; }
+			.wrapper {
+				flex-wrap: wrap;
+			}
+
+			.wrapper > * {
+				flex-grow: 1;
+			}
+
+			.col-1 {
+				flex-basis: 36%;
+			}
+
+			.col-2 {
+				flex-basis: 42%;
+			}
+
+			.col-3 {
+				flex-basis: 22%;
+			}
 
 			@media screen and (min-width: 1024px) {
-				.wrapper { border: solid 2px var(--primary-color); }
+				.wrapper {
+					border: solid 2px var(--dark-color);
+				}
+
 				.wrapper > *:not(:last-child) {
-					border-right: solid 2px var(--primary-color);
+					border-right: solid 2px var(--dark-color);
 				}
 			}
 
@@ -52,9 +69,17 @@ export class ContentSection extends LitElement {
 			}
 
 			@media screen and (max-width: 1439px) {
-				.col-1 { flex-basis: 35%; }
-				.col-2 { flex-basis: 35%; }
-				.col-3 { flex-basis: 30%; }
+				.col-1 {
+					flex-basis: 35%;
+				}
+
+				.col-2 {
+					flex-basis: 35%;
+				}
+
+				.col-3 {
+					flex-basis: 30%;
+				}
 			}
 		`];
 	}
