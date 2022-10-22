@@ -1,0 +1,22 @@
+:host {
+	min-width: fit-content;
+	width: fit-content;
+
+	height: 62px;
+}
+
+a {
+	padding: 8px 14px 8px 0;
+
+	background: var(--yellow-brand-color);
+	border: 2px solid var(--dark-color);
+	border-radius: 31px;
+	text-decoration: none !important;
+
+	.icon {
+		font-size: 24px;
+		margin-right: 12px;
+	}
+
+	& > * { color: var(--dark-color) !important; }
+}

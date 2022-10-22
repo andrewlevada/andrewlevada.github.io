@@ -3,7 +3,7 @@ import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
 import { localized, msg } from "@lit/localize";
 
-import("~components/print-button").then(f => f.default());
+import("~components/common/large-button/cases/print-button").then(f => f.default());
 import("~components/locale-picker").then(f => f.default());
 
 export default (): void => defineComponent("mobile-section", MobileSection);

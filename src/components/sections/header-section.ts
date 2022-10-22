@@ -6,7 +6,7 @@ import { property, query } from "lit/decorators.js";
 import textColorImage from "~src/assets/text_color.png";
 import { localized, msg } from "@lit/localize";
 
-import("~components/print-button").then(f => f.default());
+import("~components/common/large-button/cases/print-button").then(f => f.default());
 import("~components/locale-picker").then(f => f.default());
 
 export interface HeaderContent {
@@ -29,7 +29,7 @@ export class HeaderSection extends LitElement {
                     
                     <div class="flex row gap align-center">
                         <locale-picker class="hide-on-small"></locale-picker>
-                        <print-button class="hide-on-small"></print-button>
+                        <print-button class="hide-on-small" style="width: 260px"></print-button>
                     </div>
                 </div>
 
