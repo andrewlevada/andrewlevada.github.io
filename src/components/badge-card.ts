@@ -13,7 +13,7 @@ export class BadgeCardElement extends LitElement {
 			<div class="flex row align-center full-width">
 				<a class="header flex row gap align-center" href=${this.content.href} target="_blank">
 					${this.content.title}
-					<span class="material-icons-round">north_east</span>
+					<span class="material-icons">north_east</span>
 				</a>
 			</div>
 		`;

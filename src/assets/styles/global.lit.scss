@@ -1,131 +1,19 @@
 @use "theming.lit";
 @use "reset.lit";
+@use "global/typography.lit";
+@use "global/common.lit";
+@use "global/adaptivity.lit";
 
 :host {
 	box-sizing: border-box;
 }
 
 * {
-	color: var(--primary-color);
+	color: var(--dark-color);
 }
 
-h1 {
-	font-family: Bitter, serif;
-	font-style: italic;
-	font-weight: 700;
-	font-size: 64px;
-	line-height: 72px;
-
-	@media screen and (max-width: 1023px) {
-		font-size: min(7vw, 64px);
-		line-height: min(9vw, 72px);
-	}
-}
-
-h2 {
-	font-family: Bitter, serif;
-	font-style: italic;
-	font-weight: 400;
-	font-size: 46px;
-	line-height: 72px;
-}
-
-h3 {
-	font-family: Bitter, serif;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 36px;
-	line-height: 44px;
-
-	@media screen and (max-width: 1023px) {
-		font-size: min(6vw, 36px);
-	}
-}
-
-h4 {
-	font-family: Bitter, serif;
-	font-style: normal;
-	font-weight: 700;
-	font-size: 18px;
-	line-height: 24px;
-}
-
-p, li {
-	font-family: Bitter, serif;
-	font-style: normal;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 24.5px;
-
-	&.subtitle {
-		font-weight: 500;
-		font-style: italic;
-	}
-
-	&.italic {
-		font-style: italic;
-	}
-}
-
-li {
-	position: relative;
-	display: flex;
-	flex-direction: row;
-	margin-left: 12px;
-
-	&:before {
-		display: block;
-		content: "";
-		width: 4px;
-		height: 4px;
-		background: var(--primary-color);
-		border-radius: 2px;
-
-		position: absolute;
-		top: 10px;
-		left: -12px;
-	}
-
-	&:not(:last-child) {
-		margin-bottom: 6px;
-	}
-}
-
-a {
-	font-family: Bitter, serif;
-	font-style: italic;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 24px;
-	text-decoration-line: underline;
-
-	transition: color 100ms ease;
-
-	&.header {
-		font-family: Bitter, serif;
-		font-style: normal;
-		font-weight: 700;
-		font-size: 18px;
-		line-height: 24px;
-
-		text-decoration-line: none;
-
-		&.sans {
-			font-family: Ubuntu, sans-serif;
-			font-style: normal;
-			font-weight: 500;
-			font-size: 18px;
-			line-height: 24px;
-		}
-	}
-
-	&:hover {
-		color: var(--dark-primary-color);
-	}
-}
-
-.material-icons-round {
-	font-family: "Material Icons Round", monospace;
+.material-icons {
+	font-family: "Material Icons", monospace;
 	font-weight: normal;
 	font-style: normal;
 	font-size: 24px;
@@ -140,33 +28,3 @@ a {
 	-webkit-font-smoothing: antialiased;
 	color: inherit;
 }
-
-.border {
-	border: solid 2px var(--primary-color);
-}
-
-.small-only {
-	display: none !important;
-}
-
-@media screen and (max-width: 1439px) {
-	.desktop-only {
-		display: none !important;
-	}
-}
-
-@media screen and (max-width: 1023px) {
-	.hide-on-small {
-		display: none !important;
-	}
-
-	.small-only {
-		display: flex !important;
-	}
-}
-
-//@media screen and (min-width: 1024px) {
-//  .hide-on-small {
-//    display: none !important;
-//  }
-//}

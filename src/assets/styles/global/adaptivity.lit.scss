@@ -1,0 +1,19 @@
+.small-only {
+	display: none !important;
+}
+
+@media screen and (max-width: 1439px) {
+	.desktop-only {
+		display: none !important;
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	.hide-on-small {
+		display: none !important;
+	}
+
+	.small-only {
+		display: flex !important;
+	}
+}
