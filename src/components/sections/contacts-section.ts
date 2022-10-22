@@ -1,7 +1,7 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { componentStyles } from "~src/global";
 import { defineComponent } from "~utils/components";
-import diamondImage from "../../assets/diamond.svg";
+import diamondImage from "../../assets/graphics/diamond.svg";
 import { localized, msg } from "@lit/localize";
 
 export default (): void => defineComponent("contacts-section", ContactsSection);
