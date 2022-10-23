@@ -13,17 +13,21 @@ export class SuperBadge extends LitElement {
 		return staticHtml`
 			<div class="bg flex align-center justify-center">
 				<div class="surface">
-					<h4>${unsafeStatic(this.content.paragraphs!)}</h4>
+					<h4 class="accent-text">${unsafeStatic(this.getConcatenatedText())}</h4>
 				</div>
 			</div>
 			
 			<!-- This is a fix for some strange text display issue in Chromium -->
 			<div class="_bg flex align-center justify-center">
 				<div class="_surface">
-					<h4 class="fake">${unsafeStatic(this.content.paragraphs!)}</h4>
+					<h4 class="fake accent-text">${unsafeStatic(this.getConcatenatedText())}</h4>
 				</div>
 			</div>
 		`;
+	}
+
+	private getConcatenatedText(): string {
+		return this.content.paragraphs.join("");
 	}
 
 	static get styles(): CSSResultGroup {

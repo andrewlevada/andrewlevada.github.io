@@ -1,4 +1,4 @@
-import { CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { when } from "lit/directives/when.js";
 import { property } from "lit/decorators.js";
 import { componentStyles } from "~src/global";
@@ -40,6 +40,10 @@ export class ActivityCard extends LitElement {
 	}
 
 	static get styles(): CSSResultGroup {
-		return [...componentStyles];
+		return [...componentStyles, css`
+			.flex {
+				min-height: 62px;
+			}
+		`];
 	}
 }

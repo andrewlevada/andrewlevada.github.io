@@ -50,7 +50,7 @@ export async function getCardsFor(section: ContentSections): Promise<Card[]> {
 			// Interpret line as an item of a list
 
 			// If last paragraph is not a list we create one
-			if (typeof paragraphs[paragraphs.length - 1] == "string") paragraphs.push([] as UnorderedList);
+			if (paragraphs.length == 0 || typeof paragraphs[paragraphs.length - 1] == "string") paragraphs.push([] as UnorderedList);
 			(paragraphs[paragraphs.length - 1] as UnorderedList).push(lines[i].substring(2));
 		}
 
