@@ -1,21 +1,10 @@
 @use "src/assets/styles/global/adaptivity.lit";
+@use "./shared";
 
 :host {
 	--max-width: calc(1440px - 64px * 2);
 }
 
-@mixin side-margins {
-	--side-margin: 64px;
-	width: calc(100% - var(--side-margin) * 2);
-	max-width: var(--max-width);
-
-	margin-left: var(--side-margin);
-	margin-right: var(--side-margin);
-
-	@include adaptivity.for-tablet-down {
-		--side-margin: 24px;
-	}
-}
 
 @include adaptivity.for-desktop-only {
 	:host {
@@ -27,7 +16,7 @@
 
 
 top-landing-part {
-	@include side-margins;
+	@include shared.side-margins;
 	height: 62px;
 
 	position: fixed;
@@ -36,7 +25,7 @@ top-landing-part {
 }
 
 title-landing-part {
-	@include side-margins;
+	@include shared.side-margins;
 
 	position: absolute;
 	top: 64px + 62px; // margin + top part height
@@ -44,7 +33,7 @@ title-landing-part {
 }
 
 content-landing-part {
-	@include side-margins;
+	@include shared.side-margins;
 
 	position: absolute;
 	top: calc(100vh - 62px - 16px); // 100vh - section height - scroll gap

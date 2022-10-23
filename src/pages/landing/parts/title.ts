@@ -8,14 +8,24 @@ export default (): void => defineComponent("title-landing-part", TitleLandingPar
 export class TitleLandingPart extends LitElement {
 	render(): TemplateResult {
 		return html`
-			<h1>${msg("Hey!\nI’m Andrew,")}</h1>
-			<h1>${msg("Aspiring UX Engineer\nwith management,\ncoding and design skills.")}</h1>
+			<div class="flex col justify-center align-center full-width full-height">
+				<div class="flex row justify-between full-width">
+					<h1 id="name-header">${msg("Hey! I’m Andrew,")}</h1>
+					<h1>${msg("Aspiring UX Engineer with management, coding and design skills.")}</h1>
+				</div>
+			</div>
 		`;
 	}
 
 	static get styles(): CSSResultGroup {
 		return [...componentStyles, css`
-
+			h1 {
+				width: min-content;
+			}
+			
+			#name-header {
+				transform: translateY(-82px);
+			}
 		`];
 	}
 }

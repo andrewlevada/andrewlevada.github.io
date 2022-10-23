@@ -1,5 +1,6 @@
-import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { CSSResultGroup, html, LitElement, TemplateResult, unsafeCSS } from "lit";
 import { componentStyles } from "~src/global";
+import scopedStyles from "./top.scss";
 import { defineComponent } from "~utils/components";
 
 import("~components/contacts-block").then(f => f.default());
@@ -11,20 +12,12 @@ export class TopLandingPart extends LitElement {
 		return html`
 			<div class="flex row justify-between align-center full-width">
 				<contacts-block></contacts-block>
-				<print-button class="hide-on-small" style="width: 260px"></print-button>
+				<print-button class="hide-on-small"></print-button>
 			</div>
 		`;
 	}
 
 	static get styles(): CSSResultGroup {
-		return [...componentStyles, css`
-			contacts-block {
-				flex-grow: 1;
-			}
-			
-			print-button {
-				margin-left: 30px;
-			}
-		`];
+		return [...componentStyles, unsafeCSS(scopedStyles)];
 	}
 }

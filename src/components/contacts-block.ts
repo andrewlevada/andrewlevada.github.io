@@ -28,8 +28,6 @@ export class ContactsBlock extends LitElement {
 				height: 62px;
 				padding-left: 24px;
 				padding-right: 24px;
-				
-				background: var(--surface-color);
 			}
 
 			@media screen and (max-width: 1023px) {
