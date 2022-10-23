@@ -1,19 +1,34 @@
+@mixin for-desktop-only {
+	@media screen and (min-width: 1440px) { @content }
+}
+
+@mixin for-tablet-down {
+	@media screen and (max-width: 1439px) { @content }
+}
+
+@mixin for-phone-only {
+	@media screen and (max-width: 1023px) { @content }
+}
+
+// Classes for quick adaptivity styling
+
+.desktop-only {
+	@include for-tablet-down {
+		display: none !important;
+	}
+}
+
+
 .small-only {
 	display: none !important;
-}
 
-@media screen and (max-width: 1439px) {
-	.desktop-only {
-		display: none !important;
-	}
-}
-
-@media screen and (max-width: 1023px) {
-	.hide-on-small {
-		display: none !important;
-	}
-
-	.small-only {
+	@include for-phone-only {
 		display: flex !important;
+	}
+}
+
+.hide-on-small {
+	@include for-phone-only {
+		display: none !important;
 	}
 }

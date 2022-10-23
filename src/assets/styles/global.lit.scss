@@ -4,11 +4,8 @@
 @use "global/common.lit";
 @use "global/adaptivity.lit";
 
-:host {
-	box-sizing: border-box;
-}
-
 * {
+	box-sizing: border-box;
 	color: var(--dark-color);
 }
 

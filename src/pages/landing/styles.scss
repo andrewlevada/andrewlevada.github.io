@@ -1,70 +1,59 @@
-@media screen and (min-width: 1440px) {
+@use "src/assets/styles/global/adaptivity.lit";
+
+:host {
+	--max-width: calc(1440px - 64px * 2);
+}
+
+@mixin side-margins {
+	--side-margin: 64px;
+	width: calc(100% - var(--side-margin) * 2);
+	max-width: var(--max-width);
+
+	margin-left: var(--side-margin);
+	margin-right: var(--side-margin);
+
+	@include adaptivity.for-tablet-down {
+		--side-margin: 24px;
+	}
+}
+
+@include adaptivity.for-desktop-only {
 	:host {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
-
-	.flex {
-		width: 1440px;
-
-		& > * {
-			margin-left: auto;
-			margin-right: auto;
-		}
-	}
 }
 
-.flex {
-	position: relative;
 
-	& > *:not(locale-picker) {
-		position: absolute;
-		max-width: 1440px;
-		margin-left: 64px;
-		margin-right: 64px;
-		left: 0;
-		right: 0;
+top-landing-part {
+	@include side-margins;
+	height: 62px;
 
-		@media screen and (max-width: 1439px) {
-			margin-left: 24px !important;
-			margin-right: 24px !important;
-		}
-	}
+	position: fixed;
+	top: 64px;
+	z-index: 10;
 }
 
-header-section {
-	height: 100vh;
-	position: relative;
+title-landing-part {
+	@include side-margins;
+
+	position: absolute;
+	top: 64px + 62px; // margin + top part height
+	bottom: 62px + 16px; // content header height + content peaking gap
 }
 
-contacts-section {
-	// - sections heights - scroll gap - gap between sections
-	top: calc(100vh - 62px * 2 - 16px - 32px);
-	animation-fill-mode: both !important;
+content-landing-part {
+	@include side-margins;
+
+	position: absolute;
+	top: calc(100vh - 62px - 16px); // 100vh - section height - scroll gap
+
 	transform: translateY(62px * 2 + 32px * 2);
-
-	&.animate-open {
-		animation: bottom-in var(--launch-anim-length) ease-out;
-	}
-}
-
-content-section {
-	// - section height - scroll gap
-	top: calc(100vh - 62px - 16px);
+	animation: bottom-in var(--launch-anim-length) ease-out;
 	animation-fill-mode: both !important;
-	transform: translateY(62px * 2 + 32px * 2);
-
-	&.animate-open {
-		animation: bottom-in var(--launch-anim-length) ease-out;
-	}
 
 	padding-bottom: 64px;
-
-	//@media screen and (max-width: 1439px) {
-	//	margin-left: 0 !important;
-	//	margin-right: 0 !important;
-	//}
 }
 
 @keyframes bottom-in {

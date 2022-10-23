@@ -11,11 +11,9 @@ export default (): void => defineComponent("app-page--landing", CVPage);
 export class CVPage extends LitElement {
 	render(): TemplateResult {
 		return html`
-			<div class="flex col gap pad-64 full-width">
-				<top-landing-part></top-landing-part>
-				<title-landing-part></title-landing-part>
-				<content-landing-part></content-landing-part>
-			</div>
+			<top-landing-part></top-landing-part>
+			<title-landing-part></title-landing-part>
+			<content-landing-part></content-landing-part>
 		`;
 	}
 
