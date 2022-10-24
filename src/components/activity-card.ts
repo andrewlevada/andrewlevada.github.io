@@ -12,37 +12,52 @@ export class ActivityCard extends LitElement {
 
 	render(): TemplateResult {
 		return html`
-			<div class="flex col gap pad-24 full-width">
-				${this.isSuper() ? html`
-					${renderSuper(this.content.title, this.content)}
-				` : html`
-					<h4>${this.content.title}</h4>
-					
-					${this.contentTemplate()}
-
-					${this.content.link ? html`
-						<a href=${this.content.link.url} target="_blank">${this.content.link.label}</a>
-					` : ""}
-				`}
+			<div class="wrapper flex col gap pad-24 full-width">
+				${this.contentTemplate()}
 			</div>
 		`;
 	}
 
-	private contentTemplate(): TemplateResult[] {
-		return this.content.paragraphs.map(v => when(typeof v == "string",
-			() => html`<p>${v}</p>`,
-			() => html`<ul>${(v as UnorderedList).map(li => html`<li>${li}</li>`)}</ul>`
-		));
+	private contentTemplate(): TemplateResult {
+		if (this.isSuper()) return renderSuper(this.content.title, this.content);
+
+		if (this.isOnlyLink()) return html`
+			<a class="as-header flex align-center" href=${this.content.link!.url}>
+				${this.content.title}
+				<span class="link-icon material-icons">arrow_outward</span>
+			</a>
+		`;
+
+		return html`
+			<h4>${this.content.title}</h4>
+
+			${this.content.paragraphs.map(v => when(typeof v == "string",
+				() => html`<p>${v}</p>`,
+				() => html`<ul>${(v as UnorderedList).map(li => html`<li>${li}</li>`)}</ul>`
+			))}
+
+			${this.content.link ? html`
+				<a href=${this.content.link.url} target="_blank">${this.content.link.label}</a>
+			` : ""}
+		`;
 	}
 
 	private isSuper(): boolean {
 		return this.content.title.startsWith("_super_");
 	}
 
+	private isOnlyLink(): boolean {
+		return !!this.content.link && this.content.paragraphs.length == 0;
+	}
+
 	static get styles(): CSSResultGroup {
 		return [...componentStyles, css`
-			.flex {
+			.wrapper {
 				min-height: 62px;
+			}
+			
+			.link-icon {
+				margin-left: 12px;
 			}
 		`];
 	}

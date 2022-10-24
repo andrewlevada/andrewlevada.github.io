@@ -38,7 +38,8 @@ export async function getCardsFor(section: ContentSections): Promise<Card[]> {
 	const tableRows = await parser.parse(spreadsheetId, capitalize(section));
 
 	return tableRows.map(v => {
-		const lines = (v[localizeHeader("text")] || "").split("\n") || [];
+		const text = v[localizeHeader("text")];
+		const lines = !!text ? text.split("\n") : [];
 		const paragraphs: (string | UnorderedList)[] = [];
 
 		for (let i = 0; i < lines.length; i++) {
