@@ -1,0 +1,23 @@
+@use "src/assets/styles/global/adaptivity.lit";
+
+.top {
+	box-sizing: content-box;
+}
+
+@include adaptivity.for-phone-only {
+	.top {
+		border: 2px var(--dark-color) solid;
+	}
+}
+
+.header {
+	height: 62px;
+	position: relative;
+	background-size: cover;
+
+	& > h4 { align-self: center; }
+}
+
+.cards > * {
+	border-top: solid 2px var(--dark-color);
+}
