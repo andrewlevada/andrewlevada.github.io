@@ -2,12 +2,16 @@ import { html, TemplateResult } from "lit";
 import { Card } from "~src/content-service";
 
 export function renderSuper(identifier: string, content: Card): TemplateResult {
-	if (identifier.startsWith("_super_"))
-		identifier = identifier.split("_super_")[1];
+	if (!identifier.startsWith("_super_"))
+		throw `Wrong identifier passed to super factory (${identifier})`;
 
-	if (identifier == "badge") {
+	const args = identifier.split("_");
+	const code = args[2];
+	const options = args.length >= 3 ? args[3] : "";
+
+	if (code == "badge") {
 		import("./super-badge").then(f => f.default());
-		return html`<super-badge .content=${content}></super-badge>`;
+		return html`<super-badge .content=${content} .type=${options}></super-badge>`;
 	}
 
 	throw `Unknown super card identifier "${identifier}"`;
