@@ -1,0 +1,56 @@
+@use "src/assets/styles/global/adaptivity.lit";
+
+h1 {
+	width: min-content;
+}
+
+.texts {
+	flex-wrap: wrap;
+
+	& > h1 {
+		position: relative;
+
+		&:before {
+			content: "";
+			height: 214px;
+			width: auto;
+			z-index: -1;
+
+			position: absolute;
+			left: -80px;
+			right: -80px;
+
+			background-size: 100% auto;
+			background-repeat: no-repeat;
+		}
+	}
+}
+
+#title-short {
+	// Align last line of short title with the first line of long title
+	transform: translateY(-82px);
+
+	margin-right: 32px;
+
+	&:before {
+		top: 18px;
+	}
+}
+
+#title-long:before {
+	top: -64px;
+}
+
+@include adaptivity.for-phone-only {
+	#title-short {
+		transform: translateY(max(-9vw, -82px));
+
+		&:before {
+			top: min(18px, 1.5vw);
+		}
+	}
+
+	#title-long:before {
+		top: max(-64px, -8vw);
+	}
+}
