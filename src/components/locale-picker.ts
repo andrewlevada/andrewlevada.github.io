@@ -1,8 +1,8 @@
 import { defineComponent } from "~utils/components";
 import { css, html, LitElement, TemplateResult, unsafeCSS } from "lit";
 import { componentStyles, setLocale } from "~src/global";
-import ruFlag from "~src/assets/icons/ru.svg";
-import enFlag from "~src/assets/icons/en.svg";
+import ruFlag from "~src/assets/graphics/icons/ru.svg";
+import enFlag from "~src/assets/graphics/icons/en.svg";
 
 export default (): void => defineComponent("locale-picker", LocalePicker);
 export class LocalePicker extends LitElement {

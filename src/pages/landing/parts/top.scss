@@ -1,11 +1,12 @@
 @use "src/assets/styles/theming.lit";
+@use "src/assets/styles/global/adaptivity.lit";
 
 :host::before {
 	content: "";
 
 	display: block;
 	width: 100vw;
-	height: calc(64px + 62px); // Top page margin + top height
+	height: calc(var(--page-outer-margin) + 62px); // Top page margin + top height
 
 	position: fixed;
 	top: 0;

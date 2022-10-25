@@ -1,8 +1,16 @@
 @use "src/assets/styles/global/adaptivity.lit";
-@use "./shared";
+@use "src/assets/styles/theming.lit";
 
 :host {
-	--max-width: calc(1440px - 64px * 2);
+	--max-width: calc(1440px - var(--page-outer-margin) * 2);
+}
+
+@mixin side-margins {
+	width: calc(100% - var(--page-outer-margin) * 2);
+	max-width: var(--max-width);
+
+	margin-left: var(--page-outer-margin);
+	margin-right: var(--page-outer-margin);
 }
 
 
@@ -16,24 +24,24 @@
 
 
 top-landing-part {
-	@include shared.side-margins;
+	@include side-margins;
 	height: 62px;
 
 	position: fixed;
-	top: 64px;
+	top: var(--page-outer-margin);
 	z-index: 10;
 }
 
 title-landing-part {
-	@include shared.side-margins;
+	@include side-margins;
 
 	position: absolute;
-	top: 64px + 62px; // margin + top part height
+	top: calc(var(--page-outer-margin) + 62px); // + top part height
 	bottom: 62px + 16px; // content header height + content peaking gap
 }
 
 content-landing-part {
-	@include shared.side-margins;
+	@include side-margins;
 
 	position: absolute;
 	top: calc(100vh - 62px - 16px); // 100vh - section height - scroll gap
@@ -42,7 +50,7 @@ content-landing-part {
 	animation: bottom-in var(--launch-anim-length) ease-out;
 	animation-fill-mode: both !important;
 
-	padding-bottom: 64px;
+	padding-bottom: var(--page-outer-margin);
 }
 
 @keyframes bottom-in {

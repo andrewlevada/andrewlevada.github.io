@@ -1,3 +1,5 @@
+@use "./global/adaptivity.lit";
+
 :root, :host {
 	--red-brand-color: #F85D77;
 	--green-brand-color: #C8F199;
@@ -11,4 +13,10 @@
 
 	--launch-anim-delay: 500ms;
 	--launch-anim-length: 600ms;
+
+	--page-outer-margin: 64px;
+
+	@include adaptivity.for-phone-only {
+		--page-outer-margin: 24px;
+	}
 }
