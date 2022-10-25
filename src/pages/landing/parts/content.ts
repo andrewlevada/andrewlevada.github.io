@@ -9,16 +9,16 @@ import("~components/cards-column").then(f => f.default());
 export default (): void => defineComponent("content-landing-part", ContentLandingPart);
 @localized()
 export class ContentLandingPart extends LitElement {
-	private columns = [
+	private getColumns() { return [
 		{ name: msg("Jobs"), id: "jobs" },
 		{ name: msg("Projects"), id: "projects" },
 		{ name: msg("Education"), id: "education" }
-	];
+	]; }
 
 	render(): TemplateResult {
 		return html`
 			<div class="flex row full-width wrapper">
-				${this.columns.map((v, i) => html`
+				${this.getColumns().map((v, i) => html`
 					<cards-column class=${`col-${i + 1}`} .header=${v.name} .id=${v.id}></cards-column>
 				`)}
 			</div>

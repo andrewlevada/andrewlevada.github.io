@@ -26,6 +26,12 @@ h1 {
 	}
 }
 
+locale-picker {
+	position: absolute;
+	top: 16px;
+	left: 0;
+}
+
 #title-short {
 	// Align last line of short title with the first line of long title
 	transform: translateY(-82px);

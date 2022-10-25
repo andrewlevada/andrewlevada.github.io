@@ -4,7 +4,7 @@
 <body>
 <trans-unit id="s72c8f4d5bdabc437">
   <source>Contact me here</source>
-  <target>Со мной можно связаться тут</target>
+  <target>Напишите мне тут</target>
 </trans-unit>
 <trans-unit id="s3c676ee823ef0205">
   <source>Get PDF</source>
@@ -16,11 +16,11 @@
 </trans-unit>
 <trans-unit id="s51039c6f1a04d452">
   <source>Hey! I’m Andrew,</source>
-  <target>Hey! I’m Andrew,</target>
+  <target>Привет! Я Андрей,</target>
 </trans-unit>
 <trans-unit id="sef90aab17de37db4">
   <source>Aspiring UX Engineer with management, coding and design skills.</source>
-  <target>Aspiring UX Engineer with management, coding and design skills.</target>
+  <target>Начинающий UX Engineer с навыками управления, кодинга и дизайна.</target>
 </trans-unit>
 <trans-unit id="s6c470eea2ab4e3bd">
   <source>Jobs</source>
