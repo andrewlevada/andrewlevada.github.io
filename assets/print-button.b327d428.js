@@ -1,4 +1,4 @@
-import{b as h,r as m,s as g,y as d,d as u}from"./router.33be5d89.js";import{c as v,m as f,g as x}from"./index.dd84ea55.js";import{e as a}from"./query-assigned-elements.b2565831.js";import{l as y}from"./localized-decorator.526aa812.js";import"./index.08c554b6.js";/**
+import{b as h,r as m,s as g,y as d,d as u}from"./router.acc4959c.js";import{c as v,m as f,g as x}from"./index.c1b553b3.js";import{e as a}from"./query-assigned-elements.b2565831.js";import{l as y}from"./localized-decorator.7b020f84.js";import"./index.cb1b60eb.js";/**
  * @license
  * Copyright 2018 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
