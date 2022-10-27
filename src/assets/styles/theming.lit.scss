@@ -15,8 +15,13 @@
 	--launch-anim-length: 600ms;
 
 	--page-outer-margin: 64px;
+	--navigation-height: 62px;
 
 	@include adaptivity.for-phone-only {
-		--page-outer-margin: 24px;
+		--page-outer-margin: 18px;
+	}
+
+	@include adaptivity.top-wrap {
+		--navigation-height: calc(62px + 36px);
 	}
 }

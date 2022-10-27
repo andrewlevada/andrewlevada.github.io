@@ -1,18 +1,31 @@
 @use "src/assets/styles/global/adaptivity.lit";
 
 .wrapper {
-	height: 62px;
+	height: var(--navigation-height);
 	padding-left: 24px;
 	padding-right: 24px;
-}
-
-@include adaptivity.for-phone-only {
-	.wrapper {
-		justify-content: center !important;
-	}
 }
 
 .contact-icon {
 	width: 24px;
 	height: 24px;
+}
+
+@include adaptivity.for-phone-only {
+	.wrapper {
+		//justify-content: center !important;
+		padding: 18px;
+	}
+}
+
+@include adaptivity.top-wrap {
+	.contacts {
+		justify-content: flex-start !important;
+		flex-wrap: wrap;
+	}
+
+	#email {
+		margin-top: 12px;
+		flex-basis: 100%;
+	}
 }

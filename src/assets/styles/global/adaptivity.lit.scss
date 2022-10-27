@@ -10,6 +10,10 @@
 	@media screen and (max-width: 1023px) { @content }
 }
 
+@mixin top-wrap {
+	@media screen and (max-width: 428px) { @content }
+}
+
 // Classes for quick adaptivity styling
 
 .desktop-only {

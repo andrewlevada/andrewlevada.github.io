@@ -11,7 +11,6 @@ const contacts: [string, string, any | false][] = [
 	["Telegram", "https://t.me/andrewlevada", telegramIcon],
 	["Github", "https://github.com/andrewlevada", githubIcon],
 	["LinkedIn", "https://www.linkedin.com/in/andrewlevada", linkedinIcon],
-	// ["Email", "mailto:levada.andrew@gmail.com", "email"],
 ];
 
 export default (): void => defineComponent("contacts-block", ContactsBlock);
@@ -29,7 +28,7 @@ export class ContactsBlock extends LitElement {
 						</a>
 					`)}
 
-					<a class="header sans" href="mailto:levada.andrew@gmail.com" target="_blank">
+					<a id="email" class="header sans" href="mailto:levada.andrew@gmail.com" target="_blank">
 						<span>levada.andrew@gmail.com</span>
 					</a>
 				</div>

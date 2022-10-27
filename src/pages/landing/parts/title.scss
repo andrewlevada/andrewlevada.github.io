@@ -52,11 +52,11 @@ locale-picker {
 		transform: translateY(max(-9vw, -82px));
 
 		&:before {
-			top: min(18px, 1.5vw);
+			top: min(18px, calc(7vw - 32px));
 		}
 	}
 
 	#title-long:before {
-		top: max(-64px, -8vw);
+		top: max(-64px, calc(-7vw - 8px));
 	}
 }
