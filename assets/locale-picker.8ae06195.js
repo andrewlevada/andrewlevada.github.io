@@ -1,4 +1,4 @@
-import{d as n,i as c,r as o,s as l,y as s}from"./router.698b93dc.js";import{c as r,s as i}from"./index.5f430525.js";import"./index.82f7b823.js";const u="/assets/ru.315fc65e.svg",d="/assets/en.bc3bb1a9.svg",m=()=>n("locale-picker",a),e=class extends l{render(){return s`
+import{d as n,i as c,r as o,s as l,y as s}from"./router.6ae4bb88.js";import{c as r,s as i}from"./global.766a64fd.js";import"./index.d57b5669.js";const u="/assets/ru.315fc65e.svg",d="/assets/en.bc3bb1a9.svg",m=()=>n("locale-picker",a),e=class extends l{render(){return s`
             <div class="flex row gap">
                 <button id="lang-ru" @click=${()=>e.updateLocale("ru")}></button>
                 <button id="lang-en" @click=${()=>e.updateLocale("en")}></button>

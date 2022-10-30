@@ -1,4 +1,4 @@
-import{d as l,s as o,y as c,i as d}from"./router.698b93dc.js";import{e as f}from"./query-assigned-elements.b2565831.js";import{c as g}from"./index.5f430525.js";import"./index.82f7b823.js";var m=Object.defineProperty,h=Object.getOwnPropertyDescriptor,v=(a,e,n,r)=>{for(var t=r>1?void 0:r?h(e,n):e,s=a.length-1,p;s>=0;s--)(p=a[s])&&(t=(r?p(e,n,t):p(t))||t);return r&&t&&m(e,n,t),t};const w=()=>l("badge-card",i);class i extends o{render(){var e;return c`
+import{d as l,s as o,y as c,i as d}from"./router.6ae4bb88.js";import{e as f}from"./query-assigned-elements.b2565831.js";import{c as g}from"./global.766a64fd.js";import"./index.d57b5669.js";var m=Object.defineProperty,h=Object.getOwnPropertyDescriptor,v=(a,e,n,r)=>{for(var t=r>1?void 0:r?h(e,n):e,s=a.length-1,p;s>=0;s--)(p=a[s])&&(t=(r?p(e,n,t):p(t))||t);return r&&t&&m(e,n,t),t};const w=()=>l("badge-card",i);class i extends o{render(){var e;return c`
 			<div class="flex row align-center full-width">
 				<a class="header flex row gap align-center" href=${(e=this.content.link)==null?void 0:e.url} target="_blank">
 					${this.content.title}
